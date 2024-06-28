@@ -1,19 +1,12 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario con PHP</title>
+    <title>Document</title>
 </head>
 <body>
-    <form action="./App/login.php" method="post">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="contrasena" placeholder="Contraseña">
-        <button type="submit">Enviar</button>
-    </form>
+    Aqui va el inicio de la pagina adflksekrfkasfgijos
+    <a href='./App/Vistas/Index.php'>Login</a>
 </body>
 </html>
-
-

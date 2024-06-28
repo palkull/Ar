@@ -1,5 +1,13 @@
 <?php
-include("config.php");
+include("../Controladores/Config/config.php");
+
+session_start();
+if (!isset($_SESSION['email'])) {
+    // El usuario no ha iniciado sesión, redirige a la página de inicio de sesión
+    header("Location: ../Controladores/Login/login.php"); // Cambia "login.php" por tu página de inicio de sesión
+    exit;
+}
+
 $sql = "SELECT category_id, category FROM categories";
 $result = $conexion->query($sql);
 ?>
@@ -27,6 +35,7 @@ $result = $conexion->query($sql);
             <?php } ?>
         </select>
         <br>
+        <a href="../Controladores/Login/logout.php">Log out</a>
         
     </form>
     </center>

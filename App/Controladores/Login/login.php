@@ -3,7 +3,7 @@
 session_start();
 
 // Incluye el archivo de configuración de la base de datos
-include_once('./config.php');
+include_once('../Config/config.php');
 
 // Verifica si se envió el formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -24,16 +24,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['email'] = $email;
 
         // Redirige al usuario a la página de inicio
-        header("Location: Dash.php");
+        header("Location: ../../Vistas/Dash.php");
         exit; // Importante: detén la ejecución del script después de redirigir
     } else {
         // No se encontró una coincidencia
-        header("Location: ../index.php");
+        header("Location: ../../Vistas/index.php");
         exit;
     }
 } else {
     // Si no se envió el formulario, redirige al usuario a la página de inicio
-    header("Location: ../index.php");
+    header("Location: ../../Vistas/index.php");
     exit;
 }
-?>
+
