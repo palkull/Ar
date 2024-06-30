@@ -3,7 +3,7 @@
 session_start();
 
 // Incluye el archivo de configuración de la base de datos
-include_once('../Config/config.php');
+include_once ('../Config/config.php');
 
 // Verifica si se envió el formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -23,7 +23,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['usuario_autenticado'] = true;
         $_SESSION['email'] = $email;
 
-        // Redirige al usuario a la página de inicio
+        // Consulta para obtener el ID del usuario
+        $consulta_id = "SELECT user_id FROM users WHERE email = :email";
+        $stmt_id = $conexion->prepare($consulta_id);
+        $stmt_id->bindParam(":email", $email);
+        $stmt_id->execute();
+        $resultado_id = $stmt_id->fetch(PDO::FETCH_ASSOC);
+        $id_usuario = $resultado_id['user_id'];
+
+        $_SESSION['id'] = $id_usuario;
+
+        // Redirige al usuario a la página de bienvenida o al panel de control
         header("Location: ../../Vistas/Dash.php");
         exit; // Importante: detén la ejecución del script después de redirigir
     } else {
@@ -36,4 +46,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     header("Location: ../../Vistas/index.php");
     exit;
 }
-
+?>
