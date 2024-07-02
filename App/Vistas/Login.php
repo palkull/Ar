@@ -13,6 +13,7 @@
         <input type="password" name="contrasena" placeholder="Contraseña">
         <button type="submit">Enviar</button>
     </form>
+    <a href="./Register.php">Registrar</a>
 </body>
 
 </html>

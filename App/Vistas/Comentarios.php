@@ -24,7 +24,6 @@
 </head>
 
 <body>
-    <p>Por lo pronto aqui voy a poner los comentarios <?php echo $_SESSION['id'];?> ----------------   <?php echo $_SESSION['email'] ?>  </p>
     <center>
 
         <form action="../Controladores/Comentarios/Subir.php" method="post">

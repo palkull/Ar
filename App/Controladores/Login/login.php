@@ -40,12 +40,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit; // Importante: detén la ejecución del script después de redirigir
     } else {
         // No se encontró una coincidencia
-        header("Location: ../../Vistas/index.php");
+        header("Location: ../../Vistas/Login.php");
         exit;
     }
 } else {
     // Si no se envió el formulario, redirige al usuario a la página de inicio
-    header("Location: ../../Vistas/index.php");
+    header("Location: ../../Vistas/Login.php");
     exit;
 }
 ?>
