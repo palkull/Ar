@@ -8,14 +8,16 @@ include_once ('../Config/config.php');
 // Verifica si se envió el formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obtén los datos enviados desde el formulario
-    $contrasena = $_POST["contrasena"];
+    $password = $_POST["contrasena"];
     $email = $_POST["email"];
+    $encryptedPassword = md5($password);
 
+    echo $encryptedPassword;
     // Consulta preparada
     $consulta = "SELECT * FROM users WHERE email = :email AND pass = :contrasena";
     $stmt = $conexion->prepare($consulta);
     $stmt->bindParam(":email", $email);
-    $stmt->bindParam(":contrasena", $contrasena);
+    $stmt->bindParam(":contrasena", $encryptedPassword);
     $stmt->execute();
 
     if ($stmt->rowCount() > 0) {

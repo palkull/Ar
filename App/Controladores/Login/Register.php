@@ -5,14 +5,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['pass'];
     $email = $_POST['email'];
     $rol = $_POST['rol'];
-
+    $encryptedPassword = md5($password);
     
-    $hash = password_hash($password, PASSWORD_DEFAULT);
 
     $consulta = "INSERT INTO users (user, email, pass, rol) VALUES (:user, :email, :pass, :rol)";
     $stmt = $conexion->prepare($consulta);
     $stmt->bindParam(":user", $user);
-    $stmt->bindParam(":pass", $hash);
+    $stmt->bindParam(":pass", $encryptedPassword);
     $stmt->bindParam(":email", $email);
     $stmt->bindParam("rol", $rol);
     $stmt->execute();

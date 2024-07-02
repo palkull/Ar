@@ -31,8 +31,8 @@
             <label for="">Usuario: </label>
             <input type="text" placeholder="User" name="user" required><br>
             <select name="red_social" id="" required>
-                <option value="I">Instagram</option>
-                <option value="F">Facebook</option>
+                <option value="0" selected>Instagram</option>
+                <option value="1">Facebook</option>
             </select>
             <br>
             <input type="text" placeholder="Comentario" style="height: 40px; width: 300px;" name="comentario" required>
