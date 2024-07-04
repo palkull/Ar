@@ -75,35 +75,35 @@
 <h1 class="titulo1">Cosido y Cortado a Mano Envíos a Todo México </h1>
 </div>
 
-<div class="categorias">
-    <div id="Bolsas" class="categoria categoria1">
+<form action="./Catalogos.php" method="POST" class="categorias">
+    <button name="categoria" value="bolsa" type="submit" id="Bolsas" class="categoria categoria1">
         <p>BOLSAS</p>
         <h3></h3>
-    </div>
-    <div id="Mochilas" class="categoria categoria2">
+    </button>
+    <button name="categoria" value="mochila" type="submit" id="Mochilas" class="categoria categoria2">
         <p>MOCHILAS</p>
         <h3>Prendas para el y ella</h3>
-    </div>
-    <div id="Bandoleras" class="categoria categoria3">
+    </button>
+    <button name="categoria" value="bandoleras" type="submit" id="Bandoleras" class="categoria categoria3">
         <p>BANDOLERAS</p>
         <h3>Variedad de Accesorios</h3>
-    </div>
-    <div id="Carteras" class="categoria categoria4">
+    </button>
+    <button name="categoria" value="carteras" type="submit" id="Carteras" class="categoria categoria4">
         <p>CARTERAS</p>
         <h3>Indispensables</h3>
-    </div>
-    <div id="Mandiles" class="categoria categoria5">
+    </button>
+    <button name="categoria" value="mandiles" type="submit" id="Mandiles" class="categoria categoria5">
         <p>MANDILES</p>
         <h3>Indispensables</h3>
-    </div>
-    <div id="Escolares" class="categoria categoria6">
+    </button>
+    <button name="categoria" value="escolares" type="submit" id="Escolares" class="categoria categoria6">
         <p>ESCOLARES</p>
         <h3>Indispensables</h3>
-    </div>
-    <div id="Otro" class="categoria categoria7">
+    </button>
+    <button name="categoria" value="otro" type="submit" id="Otro" class="categoria categoria7">
         <p>OTRO</p>
         <h3>Indispensables</h3>
-    </div>
+    </button>
 </div>
 
 <footer>
