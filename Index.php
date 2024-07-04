@@ -24,10 +24,10 @@ $resultado = $stmt_id->fetchAll(PDO::FETCH_ASSOC);
         <header>
             <h1 class="titulo">AR | ARTESANÍA EN PIEL</h1>
             <nav>
-                <ul><a href="./App/Vistas/acercaDe.html">Acerca de</a></ul>
-                <ul><a href="./App/Vistas/catalogo.html">Catálogo</a></ul>
-                <ul><a href="./App/Vistas/galeria.html">Galeria</a></ul>
-                <ul><a href="./App/Vistas/consulta.html">Consulta</a></ul>
+                <ul><a href="./App/Vistas/acercaDe.php">Acerca de</a></ul>
+                <ul><a href="./App/Vistas/catalogo.php">Catálogo</a></ul>
+                <ul><a href="./App/Vistas/galeria.php">Galeria</a></ul>
+                <ul><a href="./App/Vistas/consulta.php">Consulta</a></ul>
                 <ul><a href="./App/Vistas/Login.php">Iniciar Sesión</a></ul>
             </nav>
         </header>
