@@ -21,13 +21,13 @@
         <li><a href="#"><i class="fas fa-shopping-bag"></i></a></li>
     </div>
     <ul>
-        <li><a href="#Bolsas">Bolsas</a></li>
-        <li><a href="#Mochilas">Mochilas</a></li>
-        <li><a href="#Bandoleras">Bandoleras</a></li>
-        <li><a href="#Carteras">Carteras</a></li>
-        <li><a href="#Mandiles">Mandiles</a></li>
-        <li><a href="#Escolares">Escolares</a></li>
-        <li><a href="#Otro">Otro</a></li>
+        <li><a class="elementos" href="#Bolsas">Bolsas</a></li>
+        <li><a class="elementos" href="#Mochilas">Mochilas</a></li>
+        <li><a class="elementos" href="#Bandoleras">Bandoleras</a></li>
+        <li><a class="elementos" href="#Carteras">Carteras</a></li>
+        <li><a class="elementos" href="#Mandiles">Mandiles</a></li>
+        <li><a class="elementos" href="#Escolares">Escolares</a></li>
+        <li><a class="elementos" href="#Otro">Otro</a></li>
     </ul>
 </header>
 
@@ -78,31 +78,31 @@
 <form action="./Catalogos.php" method="POST" class="categorias">
     <button name="categoria" value="bolsa" type="submit" id="Bolsas" class="categoria categoria1">
         <p>BOLSAS</p>
-        <h3></h3>
+        <h3>Bolsos y bolsas de diferentes estilos</h3>
     </button>
     <button name="categoria" value="mochila" type="submit" id="Mochilas" class="categoria categoria2">
         <p>MOCHILAS</p>
-        <h3>Prendas para el y ella</h3>
+        <h3>Para durar toda tu carrera</h3>
     </button>
     <button name="categoria" value="bandoleras" type="submit" id="Bandoleras" class="categoria categoria3">
         <p>BANDOLERAS</p>
-        <h3>Variedad de Accesorios</h3>
+        <h3>Cómodas y prácticas</h3>
     </button>
     <button name="categoria" value="carteras" type="submit" id="Carteras" class="categoria categoria4">
         <p>CARTERAS</p>
-        <h3>Indispensables</h3>
+        <h3>Elegantes y funcionales</h3>
     </button>
     <button name="categoria" value="mandiles" type="submit" id="Mandiles" class="categoria categoria5">
         <p>MANDILES</p>
-        <h3>Indispensables</h3>
+        <h3>Calidad para profesionales</h3>
     </button>
     <button name="categoria" value="escolares" type="submit" id="Escolares" class="categoria categoria6">
         <p>ESCOLARES</p>
-        <h3>Indispensables</h3>
+        <h3>Productos escolares prácticos y duraderos</h3>
     </button>
     <button name="categoria" value="otro" type="submit" id="Otro" class="categoria categoria7">
         <p>OTRO</p>
-        <h3>Indispensables</h3>
+        <h3>Cotiza según tus gustos y necesidades</h3>
     </button>
 </div>
 
