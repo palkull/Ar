@@ -7,14 +7,13 @@ $stmt_id->execute();
 $resultado = $stmt_id->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>AR | ARTESANÍA EN PIEL</title>
     <link rel="stylesheet" href="./App/css/inicio.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -28,7 +27,7 @@ $resultado = $stmt_id->fetchAll(PDO::FETCH_ASSOC);
                 <ul><a href="./App/Vistas/catalogo.php">Catálogo</a></ul>
                 <ul><a href="./App/Vistas/galeria.php">Galeria</a></ul>
                 <ul><a href="./App/Vistas/consulta.php">Consulta</a></ul>
-                <ul><a href="./App/Vistas/Login.php">Iniciar Sesión</a></ul>
+                <ul><a href="#" id="loginBtn">Iniciar Sesión</a></ul>
             </nav>
         </header>
 
@@ -40,7 +39,6 @@ $resultado = $stmt_id->fetchAll(PDO::FETCH_ASSOC);
                 <a href="">Reservar una consulta</a>
             </div>
         </div>
-
     </div>
 
     <div class="somos">
@@ -103,9 +101,23 @@ $resultado = $stmt_id->fetchAll(PDO::FETCH_ASSOC);
                 <li><a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a></li>
             </ul>
         </div>
-
     </div>
 
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modal-body"></div>
+            <?php
+            if (isset($_GET['error'])) {
+                echo "<p class='error-message shake-animation'>Credenciales incorrectas, por favor intente de nuevo.</p>";
+            }
+            ?>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./App/js/modal.js"></script>
 </body>
 
 </html>
