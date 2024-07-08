@@ -14,10 +14,10 @@ body {
 
 .fondo {
     width: 100%;
-    height: 100vh; 
+    height: 100vh;
     display: flex;
     background-image: url("../img/fondo.jpg");
-    background-size: cover; 
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     justify-content: center;
@@ -167,6 +167,7 @@ ul a {
     display: block;
     margin: 0px;
 }
+
 .imagen3 {
     width: 100%;
     height: auto;
@@ -196,7 +197,7 @@ ul a {
     width: 50%;
 }
 
-.testimonios2  h2{
+.testimonios2 h2 {
 
     font-family: "Cormorant Garamond", serif;
     font-weight: 300;
@@ -204,14 +205,14 @@ ul a {
     font-size: 1.6vi;
 }
 
-.testimonios2  h3{
+.testimonios2 h3 {
     font-family: "Cormorant Garamond", serif;
     font-weight: 800;
     font-style: normal;
     font-size: 1.6vi;
 }
 
-.testimonios2  h4{
+.testimonios2 h4 {
     font-family: "Cormorant Garamond", serif;
     font-weight: 800;
     font-style: normal;
@@ -308,14 +309,14 @@ ul a {
 
 .social-icons a {
     text-decoration: none;
-    color: #000; 
-    font-size: 1.3vi; 
+    color: #000;
+    font-size: 1.3vi;
     transition: color 0.3s ease;
-    
+
 }
 
 .social-icons a:hover {
-    color: #0077b5; 
+    color: #0077b5;
 }
 
 /* Estilos para el modal */
@@ -342,7 +343,7 @@ ul a {
     width: 50vi;
     max-width: 500px;
     min-width: 400px;
-    border-radius: 12px; 
+    border-radius: 12px;
     align-items: center;
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
@@ -414,7 +415,7 @@ form button {
 .logo h1 {
     color: white;
     font-family: 'Times New Roman', Times, serif;
-    font-weight:900;
+    font-weight: 900;
     font-size: 4.5rem;
     margin: 0px;
     padding: 0px;
@@ -423,12 +424,12 @@ form button {
 
 form {
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     width: 80%;
     justify-content: center;
     align-items: center;
     height: auto;
-    margin: 0 auto; 
+    margin: 0 auto;
 }
 
 .contenido h2 {
@@ -450,29 +451,62 @@ form {
     color: red;
     text-align: center;
     font-family: "Poppins", sans-serif;
-    font-size: 16px; 
+    font-size: 16px;
 }
+
 @keyframes shake {
-    0% { transform: translate(1px, 1px) rotate(0deg); }
-    10% { transform: translate(-1px, -2px) rotate(-1deg); }
-    20% { transform: translate(-3px, 0px) rotate(1deg); }
-    30% { transform: translate(3px, 2px) rotate(0deg); }
-    40% { transform: translate(1px, -1px) rotate(1deg); }
-    50% { transform: translate(-1px, 2px) rotate(-1deg); }
-    60% { transform: translate(-3px, 1px) rotate(0deg); }
-    70% { transform: translate(3px, 1px) rotate(-1deg); }
-    80% { transform: translate(-1px, -1px) rotate(1deg); }
-    90% { transform: translate(1px, 2px) rotate(0deg); }
-    100% { transform: translate(1px, -2px) rotate(-1deg); }
+    0% {
+        transform: translate(1px, 1px) rotate(0deg);
+    }
+
+    10% {
+        transform: translate(-1px, -2px) rotate(-1deg);
+    }
+
+    20% {
+        transform: translate(-3px, 0px) rotate(1deg);
+    }
+
+    30% {
+        transform: translate(3px, 2px) rotate(0deg);
+    }
+
+    40% {
+        transform: translate(1px, -1px) rotate(1deg);
+    }
+
+    50% {
+        transform: translate(-1px, 2px) rotate(-1deg);
+    }
+
+    60% {
+        transform: translate(-3px, 1px) rotate(0deg);
+    }
+
+    70% {
+        transform: translate(3px, 1px) rotate(-1deg);
+    }
+
+    80% {
+        transform: translate(-1px, -1px) rotate(1deg);
+    }
+
+    90% {
+        transform: translate(1px, 2px) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(1px, -2px) rotate(-1deg);
+    }
 }
 
 .shake-animation {
-    animation: shake 0.5s; 
+    animation: shake 0.5s;
     animation-iteration-count: 1;
 }
 
 .botonI {
-    width:60%;
+    width: 60%;
     height: 3rem;
     background-color: rgba(0, 0, 0, 0.4);
     border-radius: 10px;
@@ -487,7 +521,7 @@ form {
     padding: 12px 48px;
     color: #fff;
     background: linear-gradient(to right, #9f9f9f 0, #fff 10%, #868686 20%);
-    background-clip: text; 
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: shine 3s infinite linear;
@@ -505,52 +539,58 @@ form {
 }
 
 
-  @-moz-keyframes shine {
+@-moz-keyframes shine {
     0% {
-      background-position: 0;
+        background-position: 0;
     }
+
     60% {
-      background-position: 180px;
+        background-position: 180px;
     }
+
     100% {
-      background-position: 180px;
+        background-position: 180px;
     }
-  }
-  @-webkit-keyframes shine {
+}
+
+@-webkit-keyframes shine {
     0% {
-      background-position: 0;
+        background-position: 0;
     }
+
     60% {
-      background-position: 180px;
+        background-position: 180px;
     }
+
     100% {
-      background-position: 180px;
+        background-position: 180px;
     }
-  }
-  @-o-keyframes shine {
+}
+
+@-o-keyframes shine {
     0% {
-      background-position: 0;
+        background-position: 0;
     }
+
     60% {
-      background-position: 180px;
+        background-position: 180px;
     }
+
     100% {
-      background-position: 180px;
+        background-position: 180px;
     }
-  }
-  @keyframes shine {
+}
+
+@keyframes shine {
     0% {
-      background-position: 0;
+        background-position: 0;
     }
+
     60% {
-      background-position: 180px;
+        background-position: 180px;
     }
+
     100% {
-      background-position: 180px;
+        background-position: 180px;
     }
-  }
-  
-  
-  
-  
-  
+}
