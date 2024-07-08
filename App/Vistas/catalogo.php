@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -76,11 +78,11 @@
 </div>
 
 <form action="./Catalogos.php" method="POST" class="categorias">
-    <button name="categoria" value="bolsa" type="submit" id="Bolsas" class="categoria categoria1">
+    <button name="categoria" value="bolsas" type="submit" id="Bolsas" class="categoria categoria1">
         <p>BOLSAS</p>
         <h3>Bolsos y bolsas de diferentes estilos</h3>
     </button>
-    <button name="categoria" value="mochila" type="submit" id="Mochilas" class="categoria categoria2">
+    <button name="categoria" value="mochilas" type="submit" id="Mochilas" class="categoria categoria2">
         <p>MOCHILAS</p>
         <h3>Para durar toda tu carrera</h3>
     </button>
@@ -100,7 +102,7 @@
         <p>ESCOLARES</p>
         <h3>Productos escolares prácticos y duraderos</h3>
     </button>
-    <button name="categoria" value="otro" type="submit" id="Otro" class="categoria categoria7">
+    <button name="categoria" value="otros" type="submit" id="Otro" class="categoria categoria7">
         <p>OTRO</p>
         <h3>Cotiza según tus gustos y necesidades</h3>
     </button>

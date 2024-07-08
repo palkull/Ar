@@ -21,6 +21,13 @@ $result = $conexion->query($sql);
 </head>
 
 <body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="./categorias.php">Categorias</a></li>
+            <li><a href="./Dash.php">Productos</a></li>
+            <li><a href="./Comentarios.php">Reseñas</a></li>
+        </ul>
+    </nav>
     <center>
         <form action="../Controladores/Productos/Productos.php" method="post" enctype="multipart/form-data">
             <label> Nombre del Producto </label>
@@ -29,21 +36,20 @@ $result = $conexion->query($sql);
             <input type="text" name="Desc" id="" placeholder="Descripcion" size="50">
             <br>
             <select name="categoria" id="categoria">
-                
+
                 <?php while ($row = $result->fetch(PDO::FETCH_ASSOC)) { ?>
                     <option value="<?php echo $row['category_id']; ?>" select><?php echo $row['category']; ?></option>
                 <?php } ?>
             </select><br>
             <input type="file" name="Imagen[]" multiple> <br>
             <input type="text" name="color" id="" placeholder="color" size="5"><br>
-            
+
             <input type="submit" value="Guardar">
             <br>
 
 
         </form>
         <a href="../Controladores/Login/logout.php">Log out</a>
-        <a href="./../Vistas/Comentarios.php">Ver Reseñas</a>
     </center>
 </body>
 

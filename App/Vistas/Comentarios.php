@@ -1,15 +1,15 @@
-<?php 
-    session_start();
-    
-    if (!isset($_SESSION['id'])) {
-        // El usuario no ha iniciado sesión, redirige a la página de inicio de sesión
-        header("Location: ../Controladores/Login/login.php"); // Cambia "login.php" por tu página de inicio de sesión
-        exit;
-    }
+<?php
+session_start();
 
-    $_SESSION['email'];
-    $_SESSION['id'];
-    
+if (!isset($_SESSION['id'])) {
+    // El usuario no ha iniciado sesión, redirige a la página de inicio de sesión
+    header("Location: ../Controladores/Login/login.php"); // Cambia "login.php" por tu página de inicio de sesión
+    exit;
+}
+
+$_SESSION['email'];
+$_SESSION['id'];
+
 
 ?>
 
@@ -24,6 +24,13 @@
 </head>
 
 <body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="./categorias.php">Categorias</a></li>
+            <li><a href="./Dash.php">Productos</a></li>
+            <li><a href="./Comentarios.php">Reseñas</a></li>
+        </ul>
+    </nav>
     <center>
 
         <form action="../Controladores/Comentarios/Subir.php" method="post">

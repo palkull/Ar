@@ -1,5 +1,19 @@
 <?php ?>
 <?php
+
+session_start();
+
+if (!isset($_SESSION['id'])) {
+    // El usuario no ha iniciado sesión, redirige a la página de inicio de sesión
+    header("Location: ../Controladores/Login/login.php"); // Cambia "login.php" por tu página de inicio de sesión
+    exit;
+}
+
+$_SESSION['email'];
+$_SESSION['id'];
+
+
+
 include ("../Controladores/Config/config.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -8,8 +22,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $categoriaa = $_POST["categoria"];
         $categoria = trim(strtolower($categoriaa));
 
-        if ($categoria == "carteras") {
-            $categoria = "cartera";
+        if ($categoria == "cartera") {
+            $categoria = "carteras";
         }
 
 
