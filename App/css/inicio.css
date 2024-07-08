@@ -342,7 +342,7 @@ ul a {
     width: 50vi;
     max-width: 500px;
     min-width: 400px;
-    border-radius: 12px; /* Bordes redondeados opcionales */
+    border-radius: 12px; 
     align-items: center;
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
@@ -423,12 +423,12 @@ form button {
 
 form {
     display: flex;
-    flex-direction: column; /* Asegura que los elementos se apilen verticalmente */
+    flex-direction: column; 
     width: 80%;
     justify-content: center;
-    align-items: center; /* Centra los elementos horizontalmente */
+    align-items: center;
     height: auto;
-    margin: 0 auto; /* Centra el formulario dentro de su contenedor */
+    margin: 0 auto; 
 }
 
 .contenido h2 {
@@ -448,9 +448,9 @@ form {
 
 .error-message {
     color: red;
-    text-align: center; /* Centra el texto del error */
-    font-family: "Poppins", sans-serif; /* Ajusta la fuente del texto */
-    font-size: 16px; /* Ajusta el tamaño del texto */
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px; 
 }
 @keyframes shake {
     0% { transform: translate(1px, 1px) rotate(0deg); }
@@ -467,8 +467,8 @@ form {
 }
 
 .shake-animation {
-    animation: shake 0.5s; /* Duración de la animación */
-    animation-iteration-count: 1; /* Número de veces que se repite la animación */
+    animation: shake 0.5s; 
+    animation-iteration-count: 1;
 }
 
 .botonI {
@@ -487,8 +487,8 @@ form {
     padding: 12px 48px;
     color: #fff;
     background: linear-gradient(to right, #9f9f9f 0, #fff 10%, #868686 20%);
-    background-clip: text; /* Propiedad estándar */
-    -webkit-background-clip: text; /* Prefijo para WebKit (Safari, Chrome, etc.) */
+    background-clip: text; 
+    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: shine 3s infinite linear;
     animation-fill-mode: forwards;
