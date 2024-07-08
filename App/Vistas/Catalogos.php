@@ -71,9 +71,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "<p>Nombre del producto: $nombreProducto</p>";
             $primerProducto = false;
         }
+        // \"$urlImagen\"
 
         // Muestra la imagen
-        echo "<img src='../Controladores/Imagenes/\"$urlImagen\"' alt=\"Imagen del producto\">";
+        echo "<img src='../Controladores/Productos/$urlImagen' alt=\"Imagen del producto\">";
     }
     ?>
 </body>
