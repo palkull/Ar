@@ -6,7 +6,6 @@ session_start();
 
 
 
-
 include ("../Controladores/Config/config.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -32,21 +31,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "No se encontraron resultados.";
         }
 
-        $consulta2 = "SELECT products.Descripcion, products.Nombre, products.color, productimages.image_path FROM products JOIN productimages ON products.product_id = productimages.product_id WHERE products.category_id = :categoria;";
+        $consulta2 = "SELECT p.nombre AS nombre, i.image_path AS image_path FROM products p JOIN productimages i ON p.product_id = i.product_id WHERE p.category_id = :categoria;";
+        $stmt = $conexion->prepare($consulta2);
         $stmt->bindParam(":categoria", $id);
         $stmt->execute();
-
+        $row2 = $stmt->fetch(PDO::FETCH_ASSOC);
+        echo  "hola";
 
 
     } catch (PDOException $e) {
         $conexion->rollBack(); // Revierte la transacción en caso de error
         echo "Error: " . $e->getMessage();
     }
-
-
-
-
-
 }
 
 
@@ -57,24 +53,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $categoria; ?></title>
 </head>
-
 <body>
     <?php
-    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
-        <div>
-            <?php
-            echo $row["products.Descripcion"]
-            ?>
-        </div> <?php
+    $primerProducto = true; // Variable para controlar la impresión del nombre del producto
+    while ($row2 = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        // Accede a los valores de las columnas
+        $nombreProducto = $row2["nombre"];
+        $urlImagen = $row2["image_path"];
+        //echo $urlImagen;
+        if ($primerProducto) {
+            // Muestra el nombre del producto solo una vez
+            echo "<p>Nombre del producto: $nombreProducto</p>";
+            $primerProducto = false;
+        }
+
+        // Muestra la imagen
+        echo "<img src='../Controladores/Imagenes/\"$urlImagen\"' alt=\"Imagen del producto\">";
     }
     ?>
-
 </body>
-
 </html>
