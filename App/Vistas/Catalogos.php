@@ -67,13 +67,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $urlImagen = $row2["image_path"];
         //echo $urlImagen;
         if ($primerProducto) {
-            // Muestra el nombre del producto solo una vez
+            // Muestra el nombre del producto solo una veza
             echo "<p>Nombre del producto: $nombreProducto</p>";
             $primerProducto = false;
         }
+        // \"$urlImagen\"
 
         // Muestra la imagen
-        echo "<img src='../Controladores/Imagenes/\"$urlImagen\"' alt=\"Imagen del producto\">";
+        echo "<img src='../Controladores/Productos/$urlImagen' alt=\"Imagen del producto\">";
     }
     ?>
 </body>
