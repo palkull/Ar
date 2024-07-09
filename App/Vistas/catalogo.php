@@ -1,4 +1,7 @@
-
+<?php
+session_start();
+$isAdmin = isset($_SESSION['email']);
+?>
 
 <!DOCTYPE html>
 <html lang="es">
