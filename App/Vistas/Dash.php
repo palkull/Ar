@@ -30,7 +30,7 @@ $result = $conexion->query($sql);
                 <h2>Artesaníaen Piel</h2>
             </div>
         </a>
-        <a class="der" href="./catalogo.php">Catálogo ></a>
+        <a class="der" href="./catalogo.php">Catálogo</a>
 
     </header>
     <div class="navbar">
