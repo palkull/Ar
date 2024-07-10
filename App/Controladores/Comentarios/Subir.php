@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user = $_POST["user"];
     $comentario = $_POST["comentario"];
     $red = $_POST["red_social"];
-
+    
 
     // Corrige la consulta SQL y proporciona valores para todas las columnas
     $consulta = "INSERT INTO comments (user_id, comentarios, reduser, red_social) VALUES (:user_id, :comentario, :reduser, :red_social)";
@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bindParam(":user_id", $_SESSION['id']);
     $stmt->bindParam(":comentario", $comentario);
     $stmt->bindParam(":reduser", $user);
-
+    
     $stmt->bindParam(":red_social", $red); // Asegúrate de obtener el valor correcto para "red_social"
 
     if ($stmt->execute()) {

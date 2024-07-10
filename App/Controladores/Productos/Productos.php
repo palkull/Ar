@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $desc = $_POST["Desc"];
     $categoria = $_POST["categoria"];
     $color = $_POST["color"];
-
+    $estado = 1;
 
 
 
@@ -27,12 +27,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $conexion->beginTransaction(); // Inicia la transacción
 
         // Inserta en la tabla 'Producto'
-        $sql1 = "INSERT INTO products (category_id, Descripcion, Nombre, color) VALUES (:category_id, :Descripcion, :Nombre, :color)";
+        $sql1 = "INSERT INTO products (category_id, Descripcion, Nombre, color, Estado) VALUES (:category_id, :Descripcion, :Nombre, :color, :estado)";
         $stmt1 = $conexion->prepare($sql1);
         $stmt1->bindParam(":Nombre", $name);
         $stmt1->bindParam(":Descripcion", $desc);
         $stmt1->bindParam(":category_id", $categoria);
         $stmt1->bindParam(":color", $color);
+        $stmt->bindParam(":estado", $estado);
         $stmt1->execute();
         // Obtén el ID del producto recién insertado
         $producto_id = $conexion->lastInsertId();
