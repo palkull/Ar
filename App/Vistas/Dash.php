@@ -31,9 +31,9 @@ $result = $conexion->query($sql);
     <center>
         <form action="../Controladores/Productos/Productos.php" method="post" enctype="multipart/form-data">
             <label> Nombre del Producto </label>
-            <input type="text" name="name" placeholder="Nombre del Producto"><br>
+            <input type="text" name="name" placeholder="Nombre del Producto"  maxlength="255"><br>
             <label> Descripcion del Producto </label>
-            <input type="text" name="Desc" id="" placeholder="Descripcion" size="50">
+            <input type="text" name="Desc" id="" placeholder="Descripcion" size="50"  maxlength="255">
             <br>
             <select name="categoria" id="categoria">
 

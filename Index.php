@@ -1,6 +1,10 @@
 <?php
 include ("./App/Controladores/Config/config.php");
 
+session_start();
+$isAdmin = isset($_SESSION['email']);
+
+
 $consulta = "SELECT * FROM comments";
 $stmt_id = $conexion->prepare($consulta);
 $stmt_id->execute();
@@ -16,6 +20,36 @@ $resultado = $stmt_id->fetchAll(PDO::FETCH_ASSOC);
     <title>AR | ARTESANÍA EN PIEL</title>
     <link rel="stylesheet" href="./App/css/inicio.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script>
+        function toggleButtons() {
+            const originalButton = document.getElementById("originalButton");
+            const originalButton2 = document.getElementById("originalButton2");
+            const buttons = document.querySelectorAll(".button1, .button2");
+
+            // Toggle display for originalButton and originalButton2
+            originalButton.style.display = "none";
+            originalButton2.style.display = "block";
+
+            // Show all buttons with classes button1 and button2
+            buttons.forEach(button => {
+                button.style.display = "block";
+            });
+        }
+        function regreso() {
+            const originalButton = document.getElementById("originalButton");
+            const originalButton2 = document.getElementById("originalButton2");
+            const buttons = document.querySelectorAll(".button1, .button2");
+
+            // Toggle display for originalButton and originalButton2
+            originalButton.style.display = "block";
+            originalButton2.style.display = "none";
+
+            // Show all buttons with classes button1 and button2
+            buttons.forEach(button => {
+                button.style.display = "none";
+            });
+        }
+    </script>
 </head>
 
 <body>
@@ -27,7 +61,8 @@ $resultado = $stmt_id->fetchAll(PDO::FETCH_ASSOC);
                 <ul><a href="./App/Vistas/catalogo.php">Catálogo</a></ul>
                 <ul><a href="./App/Vistas/galeria.php">Galeria</a></ul>
                 <ul><a href="./App/Vistas/consulta.php">Consulta</a></ul>
-                <ul><a href="#" id="loginBtn">Iniciar Sesión</a></ul>
+
+
             </nav>
         </header>
 
@@ -65,6 +100,14 @@ $resultado = $stmt_id->fetchAll(PDO::FETCH_ASSOC);
 
         <div class="testimonios2">
             <?php
+            if ($isAdmin): ?>
+                <div>
+                    <button id="originalButton" onclick="toggleButtons()">ON</button>
+                    <button id="originalButton2" style="display: none;" onclick="regreso()">OFF</button>
+                </div>
+
+                <?php
+            endif;
             foreach ($resultado as $fila) {
                 ?>
                 <div class="testimonios3">
@@ -72,6 +115,17 @@ $resultado = $stmt_id->fetchAll(PDO::FETCH_ASSOC);
                     <h3>— @<?php echo $fila['reduser'] ?> </h3>
                     <img <?php if ($fila['red_social'] == 1) { ?> src="./App/img/facebook.png" <?php } else { ?>
                             src="./App/img/Instagram.png" <?php } ?> alt="Tacos de asada">
+                </div>
+                <div class="Botones_admin">
+                    <?php
+                    if ($isAdmin): ?>
+                        <form action="./App/Controladores/Comentarios/Resenas.php" method="POST">
+                            <button class="button1" type="submit" value="<?php echo $fila['comment_id'] ?>"
+                                style="display: none;" name="comentario">Eliminar</button>
+                        </form>
+                    <?php else: ?>
+                        <!-- <p>No hacer nada aca</p> -->
+                    <?php endif; ?>
                 </div>
                 <?php
             }
@@ -94,7 +148,12 @@ $resultado = $stmt_id->fetchAll(PDO::FETCH_ASSOC);
         <h1>AR – Arte en Piel</h1>
         <h3>hola.ar@gmail.com</h3>
         <h3>(555) 555-5555</h3>
-
+        <?php if (!$isAdmin): ?>
+            <ul><a href="#" id="loginBtn">Iniciar Sesión</a></ul>
+        <?php else: ?>
+            <ul><a href="./App/Controladores/Login/logout.php" id="loginBtn">Cerrar Sesion</a></ul>
+            <ul><a href="./App/Vistas/Dash.php">DASH</a></ul>
+        <?php endif ?>
         <div class="redes">
             <ul class="social-icons">
                 <li><a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a></li>
