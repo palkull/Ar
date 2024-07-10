@@ -24,13 +24,13 @@ $_SESSION['id'];
 </head>
 
 <body>
-    <nav class="navbar">
+    <!-- <nav class="navbar">
         <ul>
             <li><a href="./categorias.php">Categorias</a></li>
             <li><a href="./Dash.php">Productos</a></li>
             <li><a href="./Comentarios.php">Reseñas</a></li>
         </ul>
-    </nav>
+    </nav> -->
     <center>
 
         <form action="../Controladores/Comentarios/Subir.php" method="post">

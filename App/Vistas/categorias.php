@@ -22,13 +22,13 @@ $_SESSION['id'];
 </head>
 
 <body>
-    <nav class="navbar">
+    <!-- <nav class="navbar">
         <ul>
             <li><a href="./categorias.php">Categorias</a></li>
             <li><a href="./Dash.php">Productos</a></li>
             <li><a href="./Comentarios.php">Reseñas</a></li>
         </ul>
-    </nav>
+    </nav> -->
     <form action="../Controladores/Productos/categoria.php" method="POST">
         <label>Categoria</label>
         <input type="text" name="categoria" id="" placeholder="Categoria">

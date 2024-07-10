@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+body, html {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    overflow: hidden;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: transparent;
+    color: black;
+    transition: background-color 0.3s, color 0.3s;
+    z-index: 2;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-between;
+    margin: 0;
+}
+
+.izq {
+    margin-left: 20px;
+}
+
+.der {
+    margin-right: 20px;
+}
+
+header:hover a {
+    color: black;
+}
+
+header:hover  {
+    background-color: white;
+}
+
+header.sticky {
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+header.sticky a {
+    color: black;
+}
+
+header.sticky .header2 h1 {
+    color: black;
+}
+
+header.sticky .header2 h2 {
+    color: black;
+    font-weight: 200;
+}
+
+header:hover .header2 h1 {
+    color: black;
+}
+
+header:hover .header2 h2 {
+    color: black;
+    font-weight: 200;
+}
+
+header ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    padding: 1em 0;
+    margin: 0;
+}
+
+header li {
+    padding: 0.5em 1em;
+    list-style-type: none;
+}
+
+header a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s;
+}
+
+.header2 {
+    width: 15rem;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 10px 0px 0px;
+}
+
+.header2 h1 {
+    color: white;
+    font-size: 2.5rem;
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0;
+}
+
+.header2 h2 {
+    color: white;
+    font-size: 1rem;
+    margin: 0;
+    font-weight: 100;
+    margin-bottom: 10px;
+}
+
+header.sticky .header2 h1 {
+    color: black;
+}
+
+header.sticky .header2 h2 {
+    color: black;
+    font-weight: 200;
+}
+
+header:hover .header2 h1 {
+    color: black;
+}
+
+header:hover .header2 h2 {
+    color: black;
+    font-weight: 200;
+}
+
+.navbar {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    margin-top: 0;
+    margin: 0;
+    background-color: red;
+}
+
+.editor {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden; 
+    transition: background-color 0.3s, transform 0.3s; 
+}
+
+.editor a {
+    position: relative;
+    z-index: 2; 
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.editor::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    transition: background-color 0.3s;
+    z-index: 1; 
+}
+
+.editor:hover::before {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.editor:hover {
+    flex: 1.5;
+    transform: scale(1.05); 
+}
+
+.editor1 {
+    transition: 0.7s;
+    background-image: url(../img/categoriasE.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.editor2 {
+    transition: 0.7s;
+    background-image: url(../img/productosE.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.editor3 {
+    transition: 0.7s;
+    background-image: url(../img/redes.png);
+    background-size: cover;
+    background-position: center;
+}

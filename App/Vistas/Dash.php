@@ -17,40 +17,33 @@ $result = $conexion->query($sql);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Editor</title>
+    <link rel="stylesheet" href="../css/dash.css">
 </head>
 
 <body>
-    <nav class="navbar">
-        <ul>
-            <li><a href="./categorias.php">Categorias</a></li>
-            <li><a href="./Dash.php">Productos</a></li>
-            <li><a href="./Comentarios.php">Reseñas</a></li>
-        </ul>
-    </nav>
-    <center>
-        <form action="../Controladores/Productos/Productos.php" method="post" enctype="multipart/form-data">
-            <label> Nombre del Producto </label>
-            <input type="text" name="name" placeholder="Nombre del Producto"  maxlength="255"><br>
-            <label> Descripcion del Producto </label>
-            <input type="text" name="Desc" id="" placeholder="Descripcion" size="50"  maxlength="255">
-            <br>
-            <select name="categoria" id="categoria">
+    <header>
+        <a class="izq" href="../Controladores/Login/logout.php">Cerrar Sesión</a>
+        <a href="../../index.php">
+            <div class="header2">
+                <h1>ar</h1>
+                <h2>Artesaníaen Piel</h2>
+            </div>
+        </a>
+        <a class="der" href="./catalogo.php">Catálogo ></a>
 
-                <?php while ($row = $result->fetch(PDO::FETCH_ASSOC)) { ?>
-                    <option value="<?php echo $row['category_id']; ?>" select><?php echo $row['category']; ?></option>
-                <?php } ?>
-            </select><br>
-            <input type="file" name="Imagen[]" multiple> <br>
-            <input type="text" name="color" id="" placeholder="color" size="5"><br>
-
-            <input type="submit" value="Guardar">
-            <br>
-
-
-        </form>
-        <a href="../Controladores/Login/logout.php">Log out</a>
-    </center>
+    </header>
+    <div class="navbar">
+        <div class="editor editor1">
+            <a href="./categorias.php">Categorias</a>
+        </div>
+        <div class="editor editor2">
+            <a href="./productos.php">Productos</a>
+        </div>
+        <div class="editor editor3">
+            <a href="./Comentarios.php">Reseñas</a>
+        </div>
+    </div>
 </body>
 
 </html>
