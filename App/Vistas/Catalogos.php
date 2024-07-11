@@ -140,6 +140,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 ?>
                     <img src='../Controladores/Productos/<?php echo $urlImagen ?> ' alt='Imagen del producto' width="150px" height="150px" >
                     <?php
+                    
                     // Botones de administrador si es admin
             
                     echo "</div>"; // Cierre del div de producto
