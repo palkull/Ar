@@ -1,5 +1,5 @@
 <?php
-include ("../Config/config.php");
+include "../Config/config.php";
 $carpeta = 'uploads';
 
 if (!is_dir($carpeta)) {
@@ -27,13 +27,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $conexion->beginTransaction(); // Inicia la transacción
 
         // Inserta en la tabla 'Producto'
-        $sql1 = "INSERT INTO products (category_id, Descripcion, Nombre, color, Estado) VALUES (:category_id, :Descripcion, :Nombre, :color, :estado)";
+        $sql1 = "INSERT INTO products (category_id, Descripcion, Nombre, color, Estado) VALUES (:category_id, :Descripcion, :nombre, :color, :estado)";
         $stmt1 = $conexion->prepare($sql1);
-        $stmt1->bindParam(":Nombre", $name);
+        $stmt1->bindParam(":nombre", $name);
         $stmt1->bindParam(":Descripcion", $desc);
         $stmt1->bindParam(":category_id", $categoria);
         $stmt1->bindParam(":color", $color);
-        $stmt->bindParam(":estado", $estado);
+        $stmt1->bindParam(":estado", $estado);
         $stmt1->execute();
         // Obtén el ID del producto recién insertado
         $producto_id = $conexion->lastInsertId();
@@ -62,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // $stmt = $conexion->prepare($sql);
                 // $stmt->bindParam(":path", $target_path);
                 // $stmt->execute();
-                $sql2 = "INSERT INTO productimages (product_id, Nombre, image_path) VALUES (:product_id, :Nombre, :image_path)";
+                $sql2 = "INSERT INTO productimages (product_id, Nombres, image_path) VALUES (:product_id, :Nombre, :image_path)";
                 $stmt2 = $conexion->prepare($sql2);
                 $stmt2->bindParam(":product_id", $producto_id);
                 $stmt2->bindParam(":Nombre", $file_name);
