@@ -135,10 +135,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             </div>
                         <?php endif;
                 }
-
+                // <?php echo $urlImagen 
                 // Mostrar la imagen del producto
                 ?>
-                    <img src='../Controladores/Productos/<?php echo $urlImagen ?> ' alt='Imagen del producto' width="150px" height="150px" >
+                    <img src='../Controladores/Productos/uploads/favoritos.jpeg ' alt='Imagen del producto' width="150px" height="150px" >
                     <?php
                     
                     // Botones de administrador si es admin
