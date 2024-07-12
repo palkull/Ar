@@ -12,6 +12,14 @@ body, html {
     overflow: hidden;
 }
 
+.izq {
+    margin-left: 20px;
+}
+
+.der {
+    margin-right: 20px;
+}
+
 header {
     position: fixed;
     top: 0;
@@ -27,13 +35,6 @@ header {
     margin: 0;
 }
 
-.izq {
-    margin-left: 20px;
-}
-
-.der {
-    margin-right: 20px;
-}
 
 header:hover a {
     color: black;
@@ -140,7 +141,6 @@ header:hover .header2 h2 {
     height: 100%;
     margin-top: 0;
     margin: 0;
-    background-color: red;
 }
 
 .editor {
@@ -160,6 +160,7 @@ header:hover .header2 h2 {
     text-decoration: none;
     font-size: 1.5rem;
     font-weight: bold;
+    overflow: hidden;
 }
 
 .editor::before {
@@ -171,7 +172,7 @@ header:hover .header2 h2 {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
     transition: background-color 0.3s;
-    z-index: 1; 
+    z-index: 0; 
 }
 
 .editor:hover::before {
@@ -181,6 +182,8 @@ header:hover .header2 h2 {
 .editor:hover {
     flex: 1.5;
     transform: scale(1.05); 
+    overflow: hidden;
+    z-index: 1;
 }
 
 .editor1 {

@@ -80,7 +80,7 @@ $isAdmin = isset($_SESSION['email']);
 <h1 class="titulo1">Cosido y Cortado a Mano Envíos a Todo México </h1>
 </div>
 
-<form action="./Catalogos.php" method="POST" class="categorias">
+<form action="./catalogos.php" method="GET" class="categorias">
     <button name="categoria" value="bolsas" type="submit" id="Bolsas" class="categoria categoria1">
         <p>BOLSAS</p>
         <h3>Bolsos y bolsas de diferentes estilos</h3>
@@ -109,7 +109,8 @@ $isAdmin = isset($_SESSION['email']);
         <p>OTRO</p>
         <h3>Cotiza según tus gustos y necesidades</h3>
     </button>
-</div>
+</form>
+
 
 <footer>
     <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti fuga deserunt ut eum labore laudantium quaerat voluptatibus cum non aperiam sunt recusandae excepturi, iusto corporis veritatis cumque molestiae perspiciatis expedita?</div>
