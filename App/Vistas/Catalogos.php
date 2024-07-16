@@ -22,7 +22,7 @@ if (isset($_GET["categoria"])) {
         if ($row !== false) {
             $id = $row["category_id"];
         } else {
-            echo "No se encontraron resultados.";
+            //pass
         }
 
         $consulta2 = "SELECT p.nombre AS nombre, p.Descripcion AS Descripcion, p.color AS color, p.product_id AS product_id, i.image_path AS image_path FROM products p JOIN productimages i ON p.product_id = i.product_id WHERE p.category_id = :categoria;";
@@ -73,126 +73,126 @@ if (isset($_GET["categoria"])) {
 </header>
 
 <body>
-    <!-- <div class="contenido">
-    <nav>
-    <ul>
-        <li><a href="catalogos.php?categoria=bolsas" <?php echo ($categoria == 'bolsas') ? 'class="active"' : ''; ?>>Bolsas</a></li>
-        <li><a href="catalogos.php?categoria=mochilas" <?php echo ($categoria == 'mochilas') ? 'class="active"' : ''; ?>>Mochilas</a></li>
-        <li><a href="catalogos.php?categoria=bandoleras" <?php echo ($categoria == 'bandoleras') ? 'class="active"' : ''; ?>>Bandoleras</a></li>
-        <li><a href="catalogos.php?categoria=carteras" <?php echo ($categoria == 'carteras') ? 'class="active"' : ''; ?>>Carteras</a></li>
-        <li><a href="catalogos.php?categoria=mandiles" <?php echo ($categoria == 'mandiles') ? 'class="active"' : ''; ?>>Mandiles</a></li>
-        <li><a href="catalogos.php?categoria=escolares" <?php echo ($categoria == 'escolares') ? 'class="active"' : ''; ?>>Escolares</a></li>
-        <li><a href="catalogos.php?categoria=otros" <?php echo ($categoria == 'otros') ? 'class="active"' : ''; ?>>Otro</a></li>
-    </ul>
-</nav> -->
+    <div class="contenido">
+        <nav>
+            <ul>
+                <li><a href="./Catalogos.php?categoria=bolsas" <?php echo ($categoria == 'bolsas') ? 'class="active"' : ''; ?>>Bolsas</a></li>
+                <li><a href="./Catalogos.php?categoria=mochilas" <?php echo ($categoria == 'mochilas') ? 'class="active"' : ''; ?>>Mochilas</a></li>
+                <li><a href="./Catalogos.php?categoria=bandoleras" <?php echo ($categoria == 'bandoleras') ? 'class="active"' : ''; ?>>Bandoleras</a></li>
+                <li><a href="./Catalogos.php?categoria=carteras" <?php echo ($categoria == 'carteras') ? 'class="active"' : ''; ?>>Carteras</a></li>
+                <li><a href="./Catalogos.php?categoria=mandiles" <?php echo ($categoria =='mandiles') ? 'class="active"' : ''; ?>>Mandiles</a></li>
+                <li><a href="./Catalogos.php?categoria=escolares" <?php echo ($categoria == 'escolares') ? 'class="active"' : ''; ?>>Escolares</a></li>
+                <li><a href="./Catalogos.php?categoria=otros" <?php echo ($categoria == 'otros') ? 'class="active"' : ''; ?>>Otro</a></li>
+            </ul>
+        </nav>
 
-    <div class="productos">
-        <?php
-        $product_id_anterior = null;
-        if ($stmt->rowCount() > 0) {
-            while ($row2 = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                $nombreProducto = $row2["nombre"];
-                $urlImagen = $row2["image_path"];
-                $Descripcion = $row2["Descripcion"];
-                $product_id = $row2["product_id"];
-                $color = $row2["color"];
-
-                if ($product_id !== $product_id_anterior) { ?>
-                    <div class='producto' data-product-id="<?php echo $product_id; ?>"
-                        onclick="openModal(<?php echo $product_id; ?>)">
-                        <img src='../Controladores/Productos/uploads/favoritos.jpeg' alt='Imagen del producto' width="150px"
-                            height="150px">
-                        <p id="nombre"><?php echo $nombreProducto ?></p>
-                        <p id="descripcion"><?php echo $Descripcion ?></p>
-                        <?php
-                        $product_id_anterior = $product_id;
-                        if ($isAdmin): ?>
-                            <div class="BotonesEditarYEliminar">
-                                <form action="../Controladores/Productos/eliminar_producto.php" method="POST">
-                                    <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
-                                    <button type="submit" name="delete" class="delete">Eliminar</button>
-                                </form>
-                                <form action="../Controladores/Productos/editar_producto.php" method="GET">
-                                    <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
-                                    <button type="submit" name="edit" class="edit">Editar</button>
-                                </form>
-                            </div>
-                        <?php endif; ?>
-                    </div>
-                <?php }
+        <div class="productos">
+            <?php
+            $product_id_anterior = null;
+            if ($stmt->rowCount() > 0) {
+                while ($row2 = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                    $nombreProducto = $row2["nombre"];
+                    $urlImagen = $row2["image_path"];
+                    $Descripcion = $row2["Descripcion"];
+                    $product_id = $row2["product_id"];
+                    $color = $row2["color"];
+                    // if ($isAdmin): $clase = "producto"; elseif (!$isAdmin): $clase = "otroProducto";  endif;
+                    if ($product_id !== $product_id_anterior) { ?>
+                        <div class='producto <?php //echo $clase?>' data-product-id="<?php echo $product_id; ?>"
+                            onclick="openModal(<?php echo $product_id; ?>)">
+                            <img src='../Controladores/Productos/<?php echo $urlImagen ?>' alt='Imagen del producto' width="150px"
+                                height="150px">
+                            <p id="nombre"><?php echo $nombreProducto ?></p>
+                            <p id="descripcion"><?php echo $Descripcion ?></p>
+                            <?php
+                            $product_id_anterior = $product_id;
+                            if ($isAdmin): ?>
+                                <div class="BotonesEditarYEliminar">
+                                    <form action="../Controladores/Productos/eliminar_producto.php" method="POST">
+                                        <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
+                                        <button type="submit" name="delete" class="delete">Eliminar</button>
+                                    </form>
+                                    <form action="../Controladores/Productos/editar_producto.php" method="GET">
+                                        <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
+                                        <button type="submit" name="edit" class="edit">Editar</button>
+                                    </form>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                    <?php }
+                }
+            } else {
+                echo "<p>No se encontraron productos en esta categoría.</p>";
             }
-        } else {
-            echo "<p>No se encontraron productos en esta categoría.</p>";
-        }
-        ?>
-    </div>
-
-    <!-- Modal para mostrar los detalles del producto -->
-    <div id="productModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <div id="modalDetails"></div>
+            ?>
         </div>
-    </div>
 
-    <script>
-        function toggleAdminMode() {
-            var checkBox = document.getElementById("checkbox");
-            var adminButtons = document.querySelectorAll(".BotonesEditarYEliminar");
+        <!-- Modal para mostrar los detalles del producto -->
+        <div id="productModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <div id="modalDetails"></div>
+            </div>
+        </div>
 
-            adminButtons.forEach(function (buttonGroup) {
-                if (checkBox.checked) {
-                    buttonGroup.style.display = "block";
-                } else {
-                    buttonGroup.style.display = "none";
-                }
-            });
-        }
+        <script>
+            function toggleAdminMode() {
+                var checkBox = document.getElementById("checkbox");
+                var adminButtons = document.querySelectorAll(".BotonesEditarYEliminar");
 
-        // Mantener el estado del modo admin si estaba activado
-        window.onload = function () {
-            var checkBox = document.getElementById("checkbox");
-            if (checkBox.checked) {
-                toggleAdminMode();
+                adminButtons.forEach(function (buttonGroup) {
+                    if (checkBox.checked) {
+                        buttonGroup.style.display = "block";
+                    } else {
+                        buttonGroup.style.display = "none";
+                    }
+                });
             }
 
-            showProducts(); // Llamar a showProducts al cargar la página
-        }
-
-        function showProducts() {
-            const products = document.querySelectorAll('.producto');
-            products.forEach((product, index) => {
-                setTimeout(() => {
-                    product.classList.add('show');
-                }, index * 150); // 100ms delay between each product
-            });
-        }
-
-        function openModal(productId) {
-            // Mostrar el modal
-            var modal = document.getElementById("productModal");
-            modal.style.display = "block";
-
-            // Aplicar blur al fondo
-            document.querySelector(".contenido").classList.add("blur-background");
-
-            // Obtener detalles del producto
-            var xhr = new XMLHttpRequest();
-            xhr.open("GET", "getProductDetails.php?product_id=" + productId, true);
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    document.getElementById("modalDetails").innerHTML = xhr.responseText;
+            // Mantener el estado del modo admin si estaba activado
+            window.onload = function () {
+                var checkBox = document.getElementById("checkbox");
+                if (checkBox.checked) {
+                    toggleAdminMode();
                 }
-            };
-            xhr.send();
-        }
 
-        function closeModal() {
-            var modal = document.getElementById("productModal");
-            modal.style.display = "none";
-            document.querySelector(".contenido").classList.remove("blur-background");
-        }
-    </script>
+                showProducts(); // Llamar a showProducts al cargar la página
+            }
+
+            function showProducts() {
+                const products = document.querySelectorAll('.producto');
+                products.forEach((product, index) => {
+                    setTimeout(() => {
+                        product.classList.add('show');
+                    }, index * 150); // 100ms delay between each product
+                });
+            }
+
+            function openModal(productId) {
+                // Mostrar el modal
+                var modal = document.getElementById("productModal");
+                modal.style.display = "block";
+
+                // Aplicar blur al fondo
+                document.querySelector(".contenido").classList.add("blur-background");
+
+                // Obtener detalles del producto
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", "getProductDetails.php?product_id=" + productId, true);
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        document.getElementById("modalDetails").innerHTML = xhr.responseText;
+                    }
+                };
+                xhr.send();
+            }
+
+            function closeModal() {
+                var modal = document.getElementById("productModal");
+                modal.style.display = "none";
+                document.querySelector(".contenido").classList.remove("blur-background");
+            }
+        </script>
     </div>
 </body>
 
