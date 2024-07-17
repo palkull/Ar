@@ -15,19 +15,20 @@ if (isset($_GET["product_id"])) {
     $details = '<div class="product-details">';
     if ($stmt->rowCount() > 0) {
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $product_id = $row['product_id'];
+
+            if ($product_id !== $product_id_anterior) {
+                $details .= '<div class="product-info">';
+                $details .= "<h1>" . $row["nombre"] . "</h1>";
+                $details .= "<p>" . $row["Descripcion"] . "</p>";
+                $details .= "<p>Color: " . $row["color"] . "</p>";
+                $details .= '</div>';
+                $product_id_anterior = $product_id;
+            }
             $details .= '<div class="product-image">';
             $details .= "<img src='../Controladores/Productos/" . $row["image_path"] . "' alt='Imagen del producto' width='300px'>";
             $details .= '</div>';
-            $product_id = $row['product_id'];
-            
-            if ($product_id !== $product_id_anterior) {
-            $details .= '<div class="product-info">';
-            $details .= "<h1>" . $row["nombre"] . "</h1>";
-            $details .= "<p>" . $row["Descripcion"] . "</p>";
-            $details .= "<p>Color: " . $row["color"] . "</p>";
-            $details .= '</div>';
-            $product_id_anterior = $product_id;
-        }
+
         }
     } else {
         $details .= "<p>No se encontraron detalles del producto.</p>";

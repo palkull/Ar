@@ -282,12 +282,12 @@ nav li a:hover {
     display: none;
 }
 
-.product-details {
+/* .product-details {
     display: flex;
     flex-direction: row;
-}
+} */
 
-.product-image {
+/* .product-image {
     width:100%;
 }
 
@@ -298,4 +298,4 @@ nav li a:hover {
 .product-info {
     width: 70%;
     padding: 20px;
-}
+} */
