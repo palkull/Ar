@@ -90,7 +90,7 @@ include '../Controladores/Config/config.php';
                                         <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
                                         <button type="submit" name="delete" class="delete">Eliminar</button>
                                     </form>
-                                    <form action="../Controladores/Productos/editar_producto.php" method="GET">
+                                    <form action="./Editar.php" method="GET">
                                         <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
                                         <button type="submit" name="edit" class="edit">Editar</button>
                                     </form>

@@ -21,7 +21,7 @@ if (isset($_GET["categoria"])) {
             //pass
         }
 
-        $consulta2 = "SELECT p.nombre AS nombre, p.Descripcion AS Descripcion, p.color AS color, p.product_id AS product_id, i.image_path AS image_path FROM products p JOIN productimages i ON p.product_id = i.product_id WHERE p.category_id = :categoria;";
+        $consulta2 = "SELECT p.nombre AS nombre, p.Descripcion AS Descripcion, p.color AS color, p.product_id AS product_id, i.image_path AS image_path FROM products p JOIN productimages i ON p.product_id = i.product_id WHERE p.category_id = :categoria; AND p.Estado = 1";
         $stmt = $conexion->prepare($consulta2);
         $stmt->bindParam(":categoria", $id);
         $stmt->execute();
@@ -115,7 +115,7 @@ if (isset($_GET["categoria"])) {
                                         <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
                                         <button type="submit" name="delete" class="delete">Eliminar</button>
                                     </form>
-                                    <form action="../Controladores/Productos/editar_producto.php" method="GET">
+                                    <form action="./Editar.php" method="GET">
                                         <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
                                         <button type="submit" name="edit" class="edit">Editar</button>
                                     </form>
