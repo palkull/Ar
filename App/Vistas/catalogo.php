@@ -16,7 +16,7 @@ $isAdmin = isset($_SESSION['email']);
 
 <header>
     <div class="header1">
-        <li><a href="#"><i class="fas fa-search"></i></a></li> 
+        <li><a href="./Busqueda.php"><i class="fas fa-search"></i></a></li> 
         <a href="../../index.php">
             <div class="header2">
                 <h1>ar</h1>

@@ -10,10 +10,6 @@ if (isset($_GET["categoria"])) {
         $categoriaa = $_GET["categoria"];
         $categoria = trim(strtolower($categoriaa));
 
-        if ($categoria == "cartera") {
-            $categoria = "carteras";
-        }
-
         $consulta1 = "SELECT category_id FROM categories WHERE category = :categoria";
         $stmt = $conexion->prepare($consulta1);
         $stmt->bindParam(":categoria", $categoria);
@@ -45,6 +41,8 @@ if (isset($_GET["categoria"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/productos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <title><?php echo isset($categoria) ? ucfirst($categoria) : 'Categoría no especificada'; ?></title>
 </head>
 <header>
@@ -55,6 +53,7 @@ if (isset($_GET["categoria"])) {
             <h2>Artesanía en Piel</h2>
         </div>
     </a>
+    
     <?php if ($isAdmin): ?>
         <div class="container">
             <input type="checkbox" id="checkbox" onclick="toggleAdminMode()" />
@@ -69,6 +68,10 @@ if (isset($_GET["categoria"])) {
                 </svg>
             </label>
         </div>
+    <?php else: ?>
+        <div class="container">
+        <a href="./Busqueda.php"><i class="fas fa-search"></i></a>
+    </div>
     <?php endif; ?>
 </header>
 
@@ -80,7 +83,7 @@ if (isset($_GET["categoria"])) {
                 <li><a href="./Catalogos.php?categoria=mochilas" <?php echo ($categoria == 'mochilas') ? 'class="active"' : ''; ?>>Mochilas</a></li>
                 <li><a href="./Catalogos.php?categoria=bandoleras" <?php echo ($categoria == 'bandoleras') ? 'class="active"' : ''; ?>>Bandoleras</a></li>
                 <li><a href="./Catalogos.php?categoria=carteras" <?php echo ($categoria == 'carteras') ? 'class="active"' : ''; ?>>Carteras</a></li>
-                <li><a href="./Catalogos.php?categoria=mandiles" <?php echo ($categoria =='mandiles') ? 'class="active"' : ''; ?>>Mandiles</a></li>
+                <li><a href="./Catalogos.php?categoria=mandiles" <?php echo ($categoria == 'mandiles') ? 'class="active"' : ''; ?>>Mandiles</a></li>
                 <li><a href="./Catalogos.php?categoria=escolares" <?php echo ($categoria == 'escolares') ? 'class="active"' : ''; ?>>Escolares</a></li>
                 <li><a href="./Catalogos.php?categoria=otros" <?php echo ($categoria == 'otros') ? 'class="active"' : ''; ?>>Otro</a></li>
             </ul>
@@ -98,7 +101,7 @@ if (isset($_GET["categoria"])) {
                     $color = $row2["color"];
                     // if ($isAdmin): $clase = "producto"; elseif (!$isAdmin): $clase = "otroProducto";  endif;
                     if ($product_id !== $product_id_anterior) { ?>
-                        <div class='producto <?php //echo $clase?>' data-product-id="<?php echo $product_id; ?>"
+                        <div class='producto <?php //echo $clase ?>' data-product-id="<?php echo $product_id; ?>"
                             onclick="openModal(<?php echo $product_id; ?>)">
                             <img src='../Controladores/Productos/<?php echo $urlImagen ?>' alt='Imagen del producto' width="150px"
                                 height="150px">
