@@ -53,7 +53,7 @@ if (isset($_GET["categoria"])) {
             <h2>Artesanía en Piel</h2>
         </div>
     </a>
-    
+
     <?php if ($isAdmin): ?>
         <div class="container">
             <input type="checkbox" id="checkbox" onclick="toggleAdminMode()" />
@@ -70,8 +70,8 @@ if (isset($_GET["categoria"])) {
         </div>
     <?php else: ?>
         <div class="container">
-        <a href="./Busqueda.php"><i class="fas fa-search"></i></a>
-    </div>
+            <a href="./Busqueda.php"><i class="fas fa-search"></i></a>
+        </div>
     <?php endif; ?>
 </header>
 
@@ -107,21 +107,21 @@ if (isset($_GET["categoria"])) {
                                 height="150px">
                             <p id="nombre"><?php echo $nombreProducto ?></p>
                             <p id="descripcion"><?php echo $Descripcion ?></p>
-                            <?php
-                            $product_id_anterior = $product_id;
-                            if ($isAdmin): ?>
-                                <div class="BotonesEditarYEliminar">
-                                    <form action="../Controladores/Productos/eliminar_producto.php" method="POST">
-                                        <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
-                                        <button type="submit" name="delete" class="delete">Eliminar</button>
-                                    </form>
-                                    <form action="./Editar.php" method="GET">
-                                        <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
-                                        <button type="submit" name="edit" class="edit">Editar</button>
-                                    </form>
-                                </div>
-                            <?php endif; ?>
+
                         </div>
+                        <?php
+                        $product_id_anterior = $product_id;
+                        if ($isAdmin): ?>
+                            <div class="BotonesEditarYEliminar">
+                                    <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
+                                    <button type="button" name="delete" class="delete" onclick="confirmAndSubmit(<?php echo $product_id; ?>)">Eliminar</button>
+
+                                <form action="./Editar.php" method="GET">
+                                    <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
+                                    <button type="submit" name="edit" class="edit">Editar</button>
+                                </form>
+                            </div>
+                        <?php endif; ?>
                     <?php }
                 }
             } else {
@@ -196,6 +196,32 @@ if (isset($_GET["categoria"])) {
                 document.querySelector(".contenido").classList.remove("blur-background");
             }
         </script>
+        <script>
+        function confirmAndSubmit(product_id) {
+            if (confirm('¿Estás seguro que deseas continuar?')) {
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === XMLHttpRequest.DONE) {
+                        if (xhr.status === 200) {
+                            // Aquí se  maneja la respuesta si es necesario
+                            alert(xhr.responseText); // Ejemplo: mostrar una alerta con la respuesta del servidor
+                            // o redirigir aquí si lo deseas
+                            window.location.href = 'Catalogos.php?categoria=bolsas';
+                        } else {
+                            // Manejar errores si es necesario
+                            alert('Hubo un error al procesar la solicitud.');
+                        }
+                    }
+                };
+                xhr.open('GET', '../Controladores/Productos/Eliminar.php?product_id=' + product_id, true); // Cambia 'tufuncion.php' al nombre de tu archivo PHP
+                xhr.send();
+            } else {
+                // Si el usuario da clic en "Cancelar", no hacer nada
+                return false;
+            }
+        }
+
+    </script>
     </div>
 </body>
 

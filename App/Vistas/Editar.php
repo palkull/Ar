@@ -23,7 +23,7 @@ $consulta2 = "SELECT * FROM productimages where product_id = :product_id";
 $stmt3 = $conexion->prepare($consulta2);
 $stmt3->bindParam(':product_id', $product_id);
 $stmt3->execute();
-    ?>
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,7 +35,7 @@ $stmt3->execute();
 
 <body>
     <center>
-        <form action="" method="post" enctype="multipart/form-data">
+        <form action="../Controladores/Productos/editar.php" method="POST" enctype="multipart/form-data">
             <label> Nombre del Producto: </label>
             <input type="text" name="name" placeholder="Nombre del Producto" maxlength="255"
                 value="<?php echo $row2['Nombre'] ?> "><br>
@@ -48,25 +48,57 @@ $stmt3->execute();
                     <option value="<?php echo $row['category_id']; ?>" select><?php echo $row['category']; ?></option>
                 <?php } ?>
             </select><br>
-            <!-- <input type="file" name="Imagen[]" multiple value=""> <br> -->
+            <label>Añadir más imagenes:</label>
+            <input type="file" name="Imagen[]" multiple> <br>
             <label>Color:</label>
             <input type="text" name="color" id="" placeholder="color" size="5"
                 value="<?php echo $row2['color'] ?> "><br>
             <input type="submit" value="Guardar">
             <br>
+            <input type="text" name="id" value="<?php echo $product_id ?>">
         </form>
         <br>
-        <h1>Imagenes del producto</h1>
-        <form action="" method="GET">
-                <?php 
-                while($row3 = $stmt3->fetch(PDO::FETCH_ASSOC)) { ?>
-                <button type="submit" value="<?php echo $row3['image_id'] ?>"><img src="../Controladores/Productos/<?php echo $row3['image_path'] ?>" width="300vmax" alt=""></button>
-                <?php  
-                };
-                ?>
+        <h1>Imágenes del producto</h1>
+        <form id="imageForm" action="otro_archivo.php" method="GET">
+            <?php
+            while ($row3 = $stmt3->fetch(PDO::FETCH_ASSOC)) { ?>
+                <button type="button" onclick="confirmAndSubmit(<?php echo $row3['image_id'] ?>)">
+                    <img src="../Controladores/Productos/<?php echo $row3['image_path'] ?>" width="300vmax" alt="">
+                </button>
+            <?php } ?>
         </form>
 
+
     </center>
+    <script>
+        function confirmAndSubmit(imageId) {
+            if (confirm('¿Estás seguro que deseas continuar?')) {
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === XMLHttpRequest.DONE) {
+                        if (xhr.status === 200) {
+                            // Aquí se  maneja la respuesta si es necesario
+                            alert(xhr.responseText); // Ejemplo: mostrar una alerta con la respuesta del servidor
+                            // o redirigir aquí si lo deseas
+                            window.location.href = 'Catalogos.php?categoria=bolsas';
+                        } else {
+                            // Manejar errores si es necesario
+                            alert('Hubo un error al procesar la solicitud.');
+                        }
+                    }
+                };
+                xhr.open('GET', '../Controladores/Productos/EliminarImg.php?image_id=' + imageId, true); // Cambia 'tufuncion.php' al nombre de tu archivo PHP
+                xhr.send();
+            } else {
+                // Si el usuario da clic en "Cancelar", no hacer nada
+                return false;
+            }
+        }
+
+    </script>
+
+
+
 </body>
 
 </html>
