@@ -9,6 +9,8 @@ $isAdmin = isset($_SESSION['email']);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario con PHP</title>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
     <link rel="stylesheet" href="./App/css/login.css">
 </head>
 

@@ -19,7 +19,9 @@ $resultado = $stmt_id->fetchAll(PDO::FETCH_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AR | ARTESANÍA EN PIEL</title>
     <link rel="stylesheet" href="./App/css/inicio.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <script>
         function toggleButtons() {
             const originalButton = document.getElementById("originalButton");
@@ -50,6 +52,7 @@ $resultado = $stmt_id->fetchAll(PDO::FETCH_ASSOC);
             });
         }
     </script>
+    <!-- <script src="./App/js/Cerrar.js"></script> -->
 </head>
 
 <body>
@@ -151,13 +154,15 @@ $resultado = $stmt_id->fetchAll(PDO::FETCH_ASSOC);
         <?php if (!$isAdmin): ?>
             <ul><a href="#" id="loginBtn">Iniciar Sesión</a></ul>
         <?php else: ?>
-            <ul><a href="./App/Controladores/Login/logout.php" id="loginBtn">Cerrar Sesion</a></ul>
+            <button type="button" onclick="Logout()">Cerrar Sesion</button>
             <ul><a href="./App/Vistas/Dash.php">DASH</a></ul>
         <?php endif ?>
         <div class="redes">
             <ul class="social-icons">
-                <li><a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a></li>
-                <li><a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="https://www.facebook.com/arartesaniaenpielDgo" target="_blank"><i
+                            class="fab fa-facebook"></i></a></li>
+                <li><a href="https://www.instagram.com/ar_artesaniaenpiel/" target="_blank"><i
+                            class="fab fa-instagram"></i></a></li>
             </ul>
         </div>
     </div>
@@ -177,6 +182,46 @@ $resultado = $stmt_id->fetchAll(PDO::FETCH_ASSOC);
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="./App/js/modal.js"></script>
+    <script>
+        function Logout() {
+            swal("¿Estas seguro?", {
+                icon: "warning",
+                buttons: {
+                    cancel: "Cancelar",
+                    catch: {
+                        text: "Cerrar",
+                        value: "catch",
+                        dangerMode: true,
+                    }
+                },
+                
+
+            })
+                .then((value) => {
+                    switch (value) {
+                        case "catch":
+                            fetch(`./App/Controladores/Login/logout.php`)
+                                .then(response => {
+                                    if (response.ok) {
+                                        swal("Sesion cerrada",{icon: "success"}).then(() => {
+                                            location.reload(); // Recarga la página después de mostrar el mensaje de éxito
+                                        });
+
+                                    } else {
+                                        swal("Error!", "No se puedo cerrar sesion", "error");
+                                    }
+                                })
+                                .catch(error => {
+                                    swal("Error!", "Hubo un problema", "error");
+                                });
+                            break;
+
+                        default:
+                            swal("Operacion cancelada!",{icon: "error"} );
+                    }
+                });
+        }
+    </script>
 </body>
 
 </html>

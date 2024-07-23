@@ -42,6 +42,8 @@ if (isset($_GET["categoria"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/productos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="../js/jquery.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <title><?php echo isset($categoria) ? ucfirst($categoria) : 'Categoría no especificada'; ?></title>
 </head>
@@ -113,8 +115,9 @@ if (isset($_GET["categoria"])) {
                         $product_id_anterior = $product_id;
                         if ($isAdmin): ?>
                             <div class="BotonesEditarYEliminar">
-                                    <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
-                                    <button type="button" name="delete" class="delete" onclick="confirmAndSubmit(<?php echo $product_id; ?>)">Eliminar</button>
+                                <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
+                                <button type="button" name="delete" class="delete"
+                                    onclick="Eliminar(<?php echo $product_id; ?>)">Eliminar</button>
 
                                 <form action="./Editar.php" method="GET">
                                     <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
@@ -137,7 +140,6 @@ if (isset($_GET["categoria"])) {
                 <div id="modalDetails"></div>
             </div>
         </div>
-
         <script>
             function toggleAdminMode() {
                 var checkBox = document.getElementById("checkbox");
@@ -197,31 +199,45 @@ if (isset($_GET["categoria"])) {
             }
         </script>
         <script>
-        function confirmAndSubmit(product_id) {
-            if (confirm('¿Estás seguro que deseas continuar?')) {
-                var xhr = new XMLHttpRequest();
-                xhr.onreadystatechange = function () {
-                    if (xhr.readyState === XMLHttpRequest.DONE) {
-                        if (xhr.status === 200) {
-                            // Aquí se  maneja la respuesta si es necesario
-                            alert(xhr.responseText); // Ejemplo: mostrar una alerta con la respuesta del servidor
-                            // o redirigir aquí si lo deseas
-                            window.location.href = 'Catalogos.php?categoria=bolsas';
-                        } else {
-                            // Manejar errores si es necesario
-                            alert('Hubo un error al procesar la solicitud.');
+            function Eliminar(product_id) {
+                swal("Estas seguro de eliminar el producto", {
+                    icon: 'warning',
+                    buttons: {
+                        cancel: "Cancelar",
+                        catch: {
+                            text: "Seguir",
+                            value: "catch",
                         }
-                    }
-                };
-                xhr.open('GET', '../Controladores/Productos/Eliminar.php?product_id=' + product_id, true); // Cambia 'tufuncion.php' al nombre de tu archivo PHP
-                xhr.send();
-            } else {
-                // Si el usuario da clic en "Cancelar", no hacer nada
-                return false;
-            }
-        }
+                    },
+                })
+                    .then((value) => {
+                        switch (value) {
+                            
+                            case "catch":
+                                fetch(`../Controladores/Productos/Eliminar.php?product_id=${product_id}`, {
+                                    method: 'GET'
+                                })
+                                    .then(response => {
+                                        if (response.ok) {
+                                            swal("Eliminado!", "El producto ha sido eliminado.", "success")
+                                            .then(() => {
+                                                location.reload(); // Recarga la página después de mostrar el mensaje de éxito
+                                            });
+                                        } else {
+                                            swal("Error!", "No se pudo eliminar el producto.", "error");
+                                        }
+                                    })
+                                    .catch(error => {
+                                        swal("Error!", "Hubo un problema al eliminar el producto.", "error");
+                                    });
+                                break;
 
-    </script>
+                            default:
+                                swal("Operacion cancelada!",{icon: 'error'});
+                        }
+                    });
+            }
+        </script>
     </div>
 </body>
 
