@@ -49,11 +49,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         $conexion->commit(); // Confirma la transacción
         echo "Datos actualizados correctamente.";
-        header("Location: ../../Vistas/Catalogos.php?categoria=bolsas");
+        echo "<script>window.location.href = '../../Vistas/Editar.php?status=success&product_id=$id&edit=?';</script>";
 
     } catch (PDOException $e) {
         $conexion->rollBack(); // Revierte la transacción en caso de error
         echo "Error: " . $e->getMessage();
+        
+        echo "<script>window.location.href = '../../Vistas/Editar.php?product_id=$id&edit=?status=error';</script>";
+
     }
 }
-?>

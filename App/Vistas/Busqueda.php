@@ -86,10 +86,6 @@ include '../Controladores/Config/config.php';
                             $product_id_anterior = $product_id;
                             if ($isAdmin): ?>
                                 <div class="BotonesEditarYEliminar">
-                                    <form action="../Controladores/Productos/eliminar_producto.php" method="POST">
-                                        <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
-                                        <button type="submit" name="delete" class="delete">Eliminar</button>
-                                    </form>
                                     <form action="./Editar.php" method="GET">
                                         <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
                                         <button type="submit" name="edit" class="edit">Editar</button>
