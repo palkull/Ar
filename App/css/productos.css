@@ -272,14 +272,17 @@ nav li a:hover {
 }
 
 /* Desenfoque de fondo */
-.blur-background {
-    filter: blur(0px);
-    transition: filter 0.3s;
-    z-index: 1000;
-}
+
 
 .BotonesEditarYEliminar {
     display: none;
+}
+
+#product_item{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+    gap: 16px;
+    padding: 16px;
 }
 
 .product-details {
@@ -292,7 +295,11 @@ nav li a:hover {
 }
 
 .product-image img {
-    width: 100%;
+    width: 100%; /* Ajusta el ancho de la imagen al 100% del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    display: block; /* Elimina el espacio en línea debajo de la imagen */
+    object-fit: cover;
+    border-radius: 20px;
 }
 
 .product-info {
