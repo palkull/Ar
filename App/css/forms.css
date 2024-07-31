@@ -1,0 +1,532 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+body, html {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: 300;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    background-color: #111111;
+    background-image: linear-gradient(
+      32deg,
+      rgba(8, 8, 8, 0.74) 30px,
+      transparent
+    );
+    background-size: 60px 60px;
+    background-position: -5px -5px;
+}
+
+.izq {
+    margin-left: 20px;
+    margin-right: 32px;
+}
+
+.der {
+    margin-right: 20px;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: transparent;
+    color: black;
+    transition: background-color 0.3s, color 0.3s;
+    z-index: 2;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-between;
+    margin: 0;
+}
+
+
+header:hover a {
+    color: black;
+}
+
+header:hover  {
+    background-color: white;
+}
+
+header.sticky {
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+header.sticky a {
+    color: black;
+}
+
+header.sticky .header2 h1 {
+    color: black;
+}
+
+header.sticky .header2 h2 {
+    color: black;
+    font-weight: 200;
+}
+
+header:hover .header2 h1 {
+    color: black;
+}
+
+header:hover .header2 h2 {
+    color: black;
+    font-weight: 200;
+}
+
+header ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    padding: 1em 0;
+    margin: 0;
+}
+
+header li {
+    padding: 0.5em 1em;
+    list-style-type: none;
+}
+
+header a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s;
+}
+
+.header2 {
+    width: 15rem;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 10px 0px 0px;
+}
+
+.header2 h1 {
+    color: white;
+    font-size: 2.5rem;
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0;
+}
+
+.header2 h2 {
+    color: white;
+    font-size: 1rem;
+    margin: 0;
+    font-weight: 100;
+    margin-bottom: 10px;
+}
+
+header.sticky .header2 h1 {
+    color: black;
+}
+
+header.sticky .header2 h2 {
+    color: black;
+    font-weight: 200;
+}
+
+header:hover .header2 h1 {
+    color: black;
+}
+
+header:hover .header2 h2 {
+    color: black;
+    font-weight: 200;
+}
+
+form {
+    width: 30rem;
+    height: auto;
+    flex-direction: column;
+    background-color: #171717;
+    border-radius: 25px;
+    padding: 0 10px 5px 10px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-top: 3rem;
+  }
+
+  
+  #heading {
+    text-align: center;
+    margin: 1.5em;
+    color: rgb(255, 255, 255);
+    font-size: 1.2em;
+  }
+  
+  .field {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+    width: 80%;
+    border-radius: 25px;
+    padding: 0.6em;
+    border: none;
+    outline: none;
+    color: white;
+    height: 30px;
+    background-color: #171717;
+    box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+  }
+
+  .fieldDesc {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    margin: 2px;
+    border-radius: 25px;
+    padding: 0.6em;
+    border: none;
+    outline: none;
+    color: white;
+    height: 30px;
+    background-color: #171717;
+    box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+  }
+
+  .descripciones {
+    display: flex;
+    width: 84%;
+  }
+
+  .input-fieldDesc {
+    background: none;
+    border: none;
+    outline: none;
+    width: 100%;
+    color: #d3d3d3;
+  }
+  
+  .input-icon {
+    height: 1.3em;
+    width: 1.3em;
+    fill: white;
+  }
+  
+  .input-field {
+    background: none;
+    border: none;
+    outline: none;
+    width: 100%;
+    color: #d3d3d3;
+  }
+  .fas {
+    margin-top: 5px;
+    margin-right: 5px;
+  }
+  
+  .form .btn {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin-top: 2.5em;
+  }
+  
+  .button1 {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: 300;
+    padding: 0.5em;
+    padding-left: 1.1em;
+    padding-right: 1.1em;
+    border-radius: 5px;
+    margin-right: 0.5em;
+    border: none;
+    outline: none;
+    transition: .4s ease-in-out;
+    background-color: #252525;
+    color: white;
+  }
+  
+  .button1:hover {
+    background-color: black;
+    color: white;
+  }
+  
+  .button2 {
+    padding: 0.5em;
+    padding-left: 2.3em;
+    padding-right: 2.3em;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    transition: .4s ease-in-out;
+    background-color: #252525;
+    color: white;
+  }
+  
+  .button2:hover {
+    background-color: black;
+    color: white;
+  }
+  
+
+  #categoria {
+    appearance: none; 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    display: block;
+    width: 83%;
+    color: white;
+    height: 40px; 
+    padding: 0 1em;
+    margin: 20px;
+    background-color: #171717;
+    border: 1px solid #292929;
+    border-radius: 5px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEwIDE1TDE1IDVMNSA1TDEwIDE1WiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+');
+    background-repeat: no-repeat;
+    background-position: right 0.75em top 50%;
+    background-size: 1.25em;
+    border-radius: 25px;
+    text-transform: capitalize;
+  }
+  
+  #categoria:focus {
+    border-color: #505050;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    outline: none;
+  }
+  
+  #real-file {
+    display: none;
+}
+
+#custom-button {
+    display: inline-block;
+    padding: 0.5em 1em;
+    border: none;
+    background-color: #252525;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 83%;
+    height: 30px;
+    border-radius: 25px;
+    margin-bottom: 20px;
+    transition: background-color 0.3s;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: 300;
+}
+
+#custom-button:hover {
+    background-color: black;
+}
+
+#custom-text {
+    margin-left: 10px;
+    font-family: "Montserrat", sans-serif;
+    color: #d3d3d3;
+}
+
+.btn {
+  width: 50%;
+}
+
+.styled-button {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 300;
+  margin-top: -10px;
+  margin-bottom: -10px;
+  color: #ffffff;
+  background: linear-gradient(to bottom, #171717, #242424);
+  border-radius: 9999px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 1), 0 10px 20px rgba(0, 0, 0, 0.4);
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border: 1px solid #292929;
+}
+
+.styled-button::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  right: -1px;
+  bottom: -1px;
+  left: -1px;
+  background: linear-gradient(to bottom, #292929, #000000);
+  z-index: -1;
+  border-radius: 9999px;
+  transition: all 0.2s ease;
+  opacity: 1;
+}
+
+.styled-button:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 1), 0 5px 10px rgba(0, 0, 0, 0.4);
+}
+
+.styled-button .button-text {
+  flex-grow: 1;
+  margin-left: 32px;
+  text-align: center;
+}
+
+.styled-button .inner-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom, #171717, #242424);
+  width: 40px;
+  height: 40px;
+  margin-left: auto; 
+  border-radius: 50%;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 1);
+  border: 1px solid #252525;
+  transition: all 0.2s ease;
+}
+
+.styled-button .inner-button::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  right: -1px;
+  bottom: -1px;
+  left: -1px;
+  background: linear-gradient(to bottom, #292929, #000000);
+  z-index: -1;
+  border-radius: 9999px;
+  transition: all 0.2s ease;
+  opacity: 1;
+}
+
+.styled-button .inner-button .icon {
+  filter: drop-shadow(0 10px 20px rgba(26, 25, 25, 0.9)) drop-shadow(0 0 4px rgba(0, 0, 0, 1));
+  transition: all 0.4s ease-in-out;
+}
+
+.styled-button .inner-button .icon:hover {
+  filter: drop-shadow(0 10px 20px rgba(50, 50, 50, 1)) drop-shadow(0 0 20px rgba(2, 2, 2, 1));
+  transform: rotate(-35deg);
+}
+
+/* tooltips */
+ul {
+  list-style: none;
+}
+.icon-container {
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.example-2 {
+  margin-top: 2rem;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin-right: 47px;
+}
+
+.example-2 .icon-content {
+  position: relative;
+}
+
+.example-2 .icon-content .tooltip {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 5px;
+  opacity: 0;
+  visibility: hidden;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.example-2 .icon-content:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+.example-2 .icon-content a {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  margin: 10px;
+  border-radius: 50%;
+  color: #4d4d4d;
+  background-color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+
+.example-2 .icon-content a:hover {
+  box-shadow: 3px 2px 45px 0px rgb(0 0 0 / 12%);
+}
+
+.example-2 .icon-content a svg {
+  position: relative;
+  z-index: 1;
+  width: 30px;
+  height: 30px;
+}
+
+.example-2 .icon-content a:hover {
+  color: white;
+}
+
+.example-2 .icon-content a .filled {
+  position: absolute;
+  top: auto;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-color: #000;
+  transition: all 0.3s ease-in-out;
+}
+
+.example-2 .icon-content a:hover .filled {
+  height: 100%;
+}
+
+.example-2 .icon-content a[data-social="instagram"]:hover .filled {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
+}
+
+.example-2 .icon-content a[data-social="github"]:hover .filled {
+  background: radial-gradient(circle at 30% 107%, #333 0%, #333 5%, #555 45%, #777 60%, #999 90%);
+}
+
+.tools {
+  background-color: red;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}

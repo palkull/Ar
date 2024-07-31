@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+body, html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    padding: 0;
+    display: flex;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+
+.arrow {
+    cursor: pointer;
+    left: 20px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.1s;
+    width: 5rem;
+    height: 5rem;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+  
+  .arrow-top, .arrow-bottom {
+    width: 25%;
+    height: 2%;
+    background-color: #919191;
+    position: absolute;
+    top: 50%;
+  }
+  
+  .arrow-top:after, .arrow-bottom:after {
+    background-color: black;
+    content: "";
+    height: 100%;
+    position: absolute;
+    top: 0;
+    transition: all 0.15s;
+  }
+  
+  .arrow-top {
+    transform: rotate(-45deg);
+    transform-origin: bottom left;
+  }
+  
+  .arrow-top:after {
+    left: 0;
+    right: 100%;
+    transition-delay: 0s;
+  }
+  
+  .arrow-bottom {
+    transform: rotate(45deg);
+    transform-origin: top left;
+  }
+  
+  .arrow-bottom:after {
+    left: 100%;
+    right: 0;
+    transition-delay: 0.15s;
+  }
+  
+  .arrow:hover .arrow-top:after {
+    right: 0;
+    transition-delay: 0.15s;
+  }
+  
+  .arrow:hover .arrow-bottom:after {
+    left: 0;
+    transition-delay: 0s;
+  }
+  
+  .arrow:active {
+    transform: translateY(-50%) scale(0.9);
+  }
+  
+.header-logo {
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+}
+
+.header2 h1, .header2 h2 {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    position: absolute;
+    right: 0px;
+    display: flex;
+    align-items: center;
+}
+
+.container .switch {
+    display: flex;
+    align-items: center;
+}
+
+header.sticky {
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+}
+
+header.sticky a {
+    color: black;
+}
+
+header.sticky .header2 h1 {
+    color: black;
+}
+
+header.sticky .header2 h2 {
+    color: black;
+    font-weight: 200;
+}
+
+header ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    padding: 1em 0;
+    margin: 0;
+}
+
+header li {
+    padding: 0.5em 1em;
+    list-style-type: none;
+}
+
+header a {
+    text-decoration: none;
+    color: black;
+    transition: color 0.3s;
+}
+
+.header2 {
+    flex: 1;
+    text-align: center;
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.header2 h1 {
+    color: rgb(0, 0, 0);
+    font-size: 2.5rem;
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0;
+}
+
+.header2 h2 {
+    color: rgb(0, 0, 0);
+    font-size: 1rem;
+    margin: 0;
+    font-weight: 100;
+    margin-bottom: 10px;
+}
+
+header.sticky .header2 h1 {
+    color: black;
+}
+
+header.sticky .header2 h2 {
+    color: black;
+    font-weight: 200;
+}
+
+.product-details {
+    padding-top: 6rem;
+    width: 100%;
+    height: auto;
+}

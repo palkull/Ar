@@ -13,6 +13,9 @@ if (!is_dir($carpeta)) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST["name"];
     $desc = $_POST["Desc"];
+    $dimensiones = $_POST["dimensiones"];
+    $det1 = $_POST["detalle1"];
+    $det2 = $_POST["detalle2"];
     $categoria = $_POST["categoria"];
     $color = $_POST["color"];
     $estado = 1;
@@ -24,10 +27,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $conexion->beginTransaction(); // Inicia la transacción
 
         // Inserta en la tabla 'Producto'
-        $sql1 = "INSERT INTO products (category_id, Descripcion, Nombre, color, Estado) VALUES (:category_id, :Descripcion, :nombre, :color, :estado)";
+        $sql1 = "INSERT INTO products (category_id, Descripcion, dimensiones, detalle1, detalle2, Nombre, color, Estado) VALUES (:category_id, :Descripcion, :dimensiones, :detalle1, :detalle2, :nombre, :color, :estado)";
         $stmt1 = $conexion->prepare($sql1);
         $stmt1->bindParam(":nombre", $name);
         $stmt1->bindParam(":Descripcion", $desc);
+        $stmt1->bindParam(":detalle1", $det1);
+        $stmt1->bindParam(":detalle2", $det2);
+        $stmt1->bindParam(":dimensiones", $dimensiones);
         $stmt1->bindParam(":category_id", $categoria);
         $stmt1->bindParam(":color", $color);
         $stmt1->bindParam(":estado", $estado);

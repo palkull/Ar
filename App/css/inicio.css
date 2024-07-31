@@ -154,10 +154,14 @@ ul a {
     align-content: center;
     justify-content: center;
     padding: 3rem;
+}
+
+.somos2 p {
     font-family: "Cormorant Garamond", serif;
     font-weight: 300;
     font-style: normal;
     font-size: 1.6vi;
+    line-height: 1.6;
 }
 
 .imagen2 {
@@ -175,6 +179,12 @@ ul a {
     display: block;
 }
 
+.admin {
+    position: absolute;
+    right: 10px;
+    margin-top: 10px;
+}
+
 .testimonios {
     width: 100%;
     max-height: auto;
@@ -184,7 +194,6 @@ ul a {
 
 .testimonios1 {
     width: 50%;
-    padding-top: 3rem;
     padding-left: 3rem;
 }
 
@@ -195,10 +204,11 @@ ul a {
 
 .testimonios2 {
     width: 50%;
+    display: flex;
+    flex-direction: column;
 }
 
 .testimonios2 h2 {
-
     font-family: "Cormorant Garamond", serif;
     font-weight: 300;
     font-style: normal;
@@ -221,8 +231,23 @@ ul a {
 }
 
 .testimonios3 {
-    margin-top: 10%;
+    margin: 1rem 0 4rem;
+    align-items: center;
+    justify-content: center;
 }
+
+.usuaria {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.usuaria img{
+    width: 3.4%;
+    height: 3.4%;
+    object-fit: cover;
+    margin-left: 10px;
+}
+
 
 .consulta {
     background-color: rgb(46, 49, 52);
@@ -454,51 +479,6 @@ form {
     font-size: 16px;
 }
 
-@keyframes shake {
-    0% {
-        transform: translate(1px, 1px) rotate(0deg);
-    }
-
-    10% {
-        transform: translate(-1px, -2px) rotate(-1deg);
-    }
-
-    20% {
-        transform: translate(-3px, 0px) rotate(1deg);
-    }
-
-    30% {
-        transform: translate(3px, 2px) rotate(0deg);
-    }
-
-    40% {
-        transform: translate(1px, -1px) rotate(1deg);
-    }
-
-    50% {
-        transform: translate(-1px, 2px) rotate(-1deg);
-    }
-
-    60% {
-        transform: translate(-3px, 1px) rotate(0deg);
-    }
-
-    70% {
-        transform: translate(3px, 1px) rotate(-1deg);
-    }
-
-    80% {
-        transform: translate(-1px, -1px) rotate(1deg);
-    }
-
-    90% {
-        transform: translate(1px, 2px) rotate(0deg);
-    }
-
-    100% {
-        transform: translate(1px, -2px) rotate(-1deg);
-    }
-}
 
 .shake-animation {
     animation: shake 0.5s;
@@ -538,6 +518,109 @@ form {
     margin: 0;
 }
 
+.loginBtnC {
+        padding: 20px 50px;
+        text-transform: uppercase;
+        border-radius: 40px;
+        font-size: 17px;
+        font-weight: 500;
+        color: rgb(224, 205, 176);;
+        text-shadow: none;
+        background: transparent;
+        cursor: pointer;
+        box-shadow: transparent;
+        border: 0px solid #ffffff80;
+        transition: 0.5s ease;
+        user-select: none;
+      }
+      
+      #loginBtn:hover,
+      #loginBtn:focus {
+        color: #ffffff;
+        background: rgb(230, 100, 0);
+        border: 1px solid rgb(230, 100, 0);
+        text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff;
+        box-shadow: 0 0 5px rgb(230, 100, 0), 0 0 20px rgb(230, 100, 0), 0 0 50px rgb(230, 100, 0),
+          0 0 100px rgb(230, 100, 0);
+      }
+
+      .botonesA {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .adminB {
+        background-color: white;
+        padding: 1rem 2rem 1rem 2rem;
+        height: 3rem;
+        border-radius: 40px;
+        margin: 1rem;
+        color: black;
+        border: none;
+        border-width: 2px black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-transform: uppercase;
+        font-family: "Montserrat", sans-serif;
+        font-optical-sizing: auto;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 1rem;
+    }
+
+    .adminB:hover {
+        background-color: rgb(199, 199, 199);
+    }
+
+
+      @keyframes shake {
+        0% {
+            transform: translate(1px, 1px) rotate(0deg);
+        }
+    
+        10% {
+            transform: translate(-1px, -2px) rotate(-1deg);
+        }
+    
+        20% {
+            transform: translate(-3px, 0px) rotate(1deg);
+        }
+    
+        30% {
+            transform: translate(3px, 2px) rotate(0deg);
+        }
+    
+        40% {
+            transform: translate(1px, -1px) rotate(1deg);
+        }
+    
+        50% {
+            transform: translate(-1px, 2px) rotate(-1deg);
+        }
+    
+        60% {
+            transform: translate(-3px, 1px) rotate(0deg);
+        }
+    
+        70% {
+            transform: translate(3px, 1px) rotate(-1deg);
+        }
+    
+        80% {
+            transform: translate(-1px, -1px) rotate(1deg);
+        }
+    
+        90% {
+            transform: translate(1px, 2px) rotate(0deg);
+        }
+    
+        100% {
+            transform: translate(1px, -2px) rotate(-1deg);
+        }
+    }
 
 @-moz-keyframes shine {
     0% {
@@ -594,3 +677,4 @@ form {
         background-position: 180px;
     }
 }
+

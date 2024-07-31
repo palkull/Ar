@@ -85,12 +85,14 @@ $resultado = $stmt_id->fetchAll(PDO::FETCH_ASSOC);
         </div>
 
         <div class="somos2">
+            <p>
             AR Artesanía es una micro empresa en línea fundada por la Arquitecta Cecilia Hidalgo Rosales en el año 2008.
             La empresa comenzó como hobbie elaborando bolsas de piel en el estado de Durango y las enviaba a la ciudad
-            de México para su venta. Con el paso de los años sus productos comenzaron a tener más demanda por medio de
+            de México para su venta. <br><br>Con el paso de los años sus productos comenzaron a tener más demanda por medio de
             recomendaciones y se comenzaron a hacer envíos a diferentes partes de la república, hasta que en febrero de
             2018, lo que llego a ser su pasatiempo se convirtió en una gran oportunidad de negocio y se dedicó al 100% a
             la elaboración de artículos de piel.
+            </p>
         </div>
     </div>
 
@@ -104,7 +106,7 @@ $resultado = $stmt_id->fetchAll(PDO::FETCH_ASSOC);
         <div class="testimonios2">
             <?php
             if ($isAdmin): ?>
-                <div>
+                <div class="admin">
                     <button id="originalButton" onclick="toggleButtons()">ON</button>
                     <button id="originalButton2" style="display: none;" onclick="regreso()">OFF</button>
                 </div>
@@ -114,10 +116,12 @@ $resultado = $stmt_id->fetchAll(PDO::FETCH_ASSOC);
             foreach ($resultado as $fila) {
                 ?>
                 <div class="testimonios3">
-                    <h2><?php echo $fila['comentarios'] ?> </h2>
+                    <h2>"<?php echo $fila['comentarios'] ?>" </h2>
+                    <div class="usuaria">
                     <h3>— @<?php echo $fila['reduser'] ?> </h3>
                     <img <?php if ($fila['red_social'] == 1) { ?> src="./App/img/facebook.png" <?php } else { ?>
-                            src="./App/img/Instagram.png" <?php } ?> alt="Tacos de asada">
+                            src="./App/img/Instagram.png" <?php } ?> alt="Tacos de asada"> 
+                            </div>
                 </div>
                 <div class="Botones_admin">
                     <?php
@@ -127,7 +131,7 @@ $resultado = $stmt_id->fetchAll(PDO::FETCH_ASSOC);
                                 style="display: none;" name="comentario">Eliminar</button>
                         </form>
                     <?php else: ?>
-                        <!-- <p>No hacer nada aca</p> -->
+                        <!-- <p>No hacer nada acá</p> -->
                     <?php endif; ?>
                 </div>
                 <?php
@@ -151,19 +155,23 @@ $resultado = $stmt_id->fetchAll(PDO::FETCH_ASSOC);
         <h1>AR – Arte en Piel</h1>
         <h3>hola.ar@gmail.com</h3>
         <h3>(555) 555-5555</h3>
-        <?php if (!$isAdmin): ?>
-            <ul><a href="#" id="loginBtn">Iniciar Sesión</a></ul>
-        <?php else: ?>
-            <button type="button" onclick="Logout()">Cerrar Sesion</button>
-            <ul><a href="./App/Vistas/Dash.php">DASH</a></ul>
-        <?php endif ?>
+        
         <div class="redes">
             <ul class="social-icons">
                 <li><a href="https://www.facebook.com/arartesaniaenpielDgo" target="_blank"><i
                             class="fab fa-facebook"></i></a></li>
                 <li><a href="https://www.instagram.com/ar_artesaniaenpiel/" target="_blank"><i
                             class="fab fa-instagram"></i></a></li>
-            </ul>
+                            </ul>
+                <div class="botonesA">
+                <?php if (!$isAdmin): ?>
+                    <ul><a href="#" id="loginBtn" class="loginBtnC">Iniciar Sesión</a></ul>
+                    <?php else: ?>
+                        <ul><a class="adminB" href="./App/Vistas/Dash.php">Dashboard</a></ul>
+                        <button class="adminB" type="button" onclick="Logout()">Cerrar Sesion</button>
+                <?php endif ?>
+                </div>
+            
         </div>
     </div>
 
