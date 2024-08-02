@@ -190,6 +190,7 @@ header.sticky .header2 h2 {
 
 .product-details {
     padding-top: 6rem;
+    background-color: red;
     width: 100%;
     height: auto;
 }

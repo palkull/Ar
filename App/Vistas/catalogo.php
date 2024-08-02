@@ -32,7 +32,7 @@ $isAdmin = isset($_SESSION['email']);
         <li><a class="elementos" href="#Carteras">Carteras</a></li>
         <li><a class="elementos" href="#Mandiles">Mandiles</a></li>
         <li><a class="elementos" href="#Escolares">Escolares</a></li>
-        <li><a class="elementos" href="#Otro">Otro</a></li>
+        <li><a class="elementos" href="#todos">Todos</a></li>
     </ul>
 </header>
 
@@ -105,8 +105,8 @@ $isAdmin = isset($_SESSION['email']);
         <p>ESCOLARES</p>
         <h3>Productos escolares prácticos y duraderos</h3>
     </button>
-    <button name="categoria" value="otros" type="submit" id="Otro" class="categoria categoria7">
-        <p>OTRO</p>
+    <button onclick="window.location.href='./busqueda.php'" type="button" id="todos" class="categoria categoria7">
+        <p>Todos los artículos</p>
         <h3>Cotiza según tus gustos y necesidades</h3>
     </button>
 </form>

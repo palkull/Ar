@@ -257,7 +257,7 @@ nav li a:hover {
     transition: transform 0.3s ease-in-out;
     cursor: pointer;
     transition: transform 0.3s, opacity .8s;
-    opacity: 0;
+    opacity: 1;
     transform: translateY(20px);
     position: relative;
 }
@@ -395,8 +395,6 @@ nav li a:hover {
     text-transform: uppercase;
     text-decoration: underline;
 }
-
-
 
 /* botón */
 .container {
