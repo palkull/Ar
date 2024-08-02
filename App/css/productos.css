@@ -257,7 +257,7 @@ nav li a:hover {
     transition: transform 0.3s ease-in-out;
     cursor: pointer;
     transition: transform 0.3s, opacity .8s;
-    opacity: 1;
+    opacity: 0;
     transform: translateY(20px);
     position: relative;
 }
