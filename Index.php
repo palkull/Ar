@@ -19,6 +19,7 @@ $resultado = $stmt_id->fetchAll(PDO::FETCH_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AR | ARTESANÍA EN PIEL</title>
     <link rel="stylesheet" href="./App/css/inicio.css">
+    <link rel="icon" type="image/x-icon" href="/Ar/App/img/logoAr.ico">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 

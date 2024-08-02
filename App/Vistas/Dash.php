@@ -19,6 +19,7 @@ $result = $conexion->query($sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editor</title>
     <link rel="stylesheet" href="../css/dash.css">
+    <link rel="icon" type="image/x-icon" href="../img/logoAr.ico">
 </head>
 
 <body>

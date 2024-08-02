@@ -39,11 +39,12 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/productos.css">
+    <link rel="icon" type="image/x-icon" href="../img/logoAr.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="../js/jquery.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-    <title><?php echo isset($categoria) ? ucfirst($categoria) : 'Categoría no especificada'; ?></title>
+    <title>AR | <?php echo isset($categoria) ? ucfirst($categoria) : 'Categoría no especificada'; ?></title>
 </head>
 <header>
 <div class="arrow" onclick="history.go(-1);">
@@ -85,7 +86,7 @@ try {
             <li><a href="./Catalogos.php?categoria=carteras" <?php echo ($categoria == 'carteras') ? 'class="active"' : ''; ?>>Carteras</a></li>
             <li><a href="./Catalogos.php?categoria=mandiles" <?php echo ($categoria == 'mandiles') ? 'class="active"' : ''; ?>>Mandiles</a></li>
             <li><a href="./Catalogos.php?categoria=escolares" <?php echo ($categoria == 'escolares') ? 'class="active"' : ''; ?>>Escolares</a></li>
-            <li><a href="./Catalogos.php?categoria=otros" <?php echo ($categoria == 'otros') ? 'class="active"' : ''; ?>>Otro</a></li>
+            <li><a href="./busqueda.php">Todos</a></li>
         </ul>
     </nav>
     <div class="contenido">
@@ -98,7 +99,6 @@ try {
         'carteras' => ['titulo' => 'Carteras', 'texto' => 'Variedad de estilos, tamaños y tipos de carteras hechos para ti. ', 'imagen' => '../img/carteraCover2.png'],
         'mandiles' => ['titulo' => 'Mandiles', 'texto' => 'Mandiles de alta resistencia y durabilidad, diseñados para brindar máxima protección y comodidad en todas tus actividades.','imagen' => '../img/mandilesCover.png'],
         'escolares' => [ 'titulo' => 'Escolares', 'texto' => 'Artículos escolares de primera calidad, diseñados para satisfacer todas tus necesidades académicas con estilo y funcionalidad.', 'imagen' => '../img/escolaresCover.png'],        
-        'otros' => ['texto' => 'Explora otros productos únicos', 'imagen' => '../images/otros.jpg'],
     ];
 
     // Mostrar texto e imagen de la categoría seleccionada

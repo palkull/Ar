@@ -37,8 +37,9 @@ try {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buscar</title>
+    <title>Todos los artículos</title>
     <link rel="stylesheet" href="../css/busqueda.css">
+    <link rel="icon" type="image/x-icon" href="../img/logoAr.ico">
 </head>
 <header>
     <div class="arrow" onclick="history.go(-1);">
