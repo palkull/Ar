@@ -3,18 +3,17 @@ include "../Controladores/Config/config.php";
 
 session_start();
 if (!isset($_SESSION['email'])) {
-    // El usuario no ha iniciado sesión, redirige a la página de inicio de sesión
     header("Location: ../Controladores/Login/login.php");
     exit;
 }
 
-//Todas las categorías
+// Todas las categorías
 $conexion->beginTransaction();
 $product_id = $_GET['product_id'];
 $sql = "SELECT category_id, category FROM categories";
 $result = $conexion->query($sql);
 
-//Productos
+// Productos
 $consulta = "SELECT * FROM products WHERE product_id = :product_id";
 $stmt1 = $conexion->prepare($consulta);
 $stmt1->bindParam(':product_id', $product_id);
@@ -32,50 +31,107 @@ $stmt3->execute();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar</title>
+    <title>Editar Producto</title>
     <link rel="icon" type="image/x-icon" href="../img/logoAr.ico">
+    <link rel="stylesheet" href="../css/editor.css"> <!-- Añade el CSS de la primera página -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
-    <center>
-        <form action="../Controladores/Productos/editar.php" method="POST" enctype="multipart/form-data">
-            <label>Nombre del Producto: </label>
-            <input type="text" name="name" placeholder="Nombre del Producto" maxlength="255" value="<?php echo $row2['Nombre'] ?>"><br>
-            <label>Descripción del Producto: </label>
-            <input type="text" name="Desc" placeholder="Descripción" size="50" maxlength="255" value="<?php echo $row2['Descripcion'] ?>"><br>
-            <label>Detalle 1: </label>
-            <input type="text" name="detalle1" placeholder="Detalle 1" size="50" maxlength="255" value="<?php echo $row2['detalle1'] ?>"><br>
-            <label>Detalle 2: </label>
-            <input type="text" name="detalle2" placeholder="Detalle 2" size="50" maxlength="255" value="<?php echo $row2['detalle2'] ?>"><br>
-            <select name="categoria" id="categoria">
-                <?php while ($row = $result->fetch(PDO::FETCH_ASSOC)) { ?>
-                    <option value="<?php echo $row['category_id']; ?>" <?php if ($row['category_id'] == $row2['category_id']) echo 'selected'; ?>><?php echo $row['category']; ?></option>
-                <?php } ?>
-            </select><br>
-            <label>Añadir más imágenes:</label>
-            <input type="file" name="Imagen[]" multiple><br>
-            <label>Color:</label>
-            <input type="text" name="color" placeholder="Color" size="5" value="<?php echo $row2['color'] ?>"><br>
-            <input type="submit" value="Guardar"><br>
-            <input type="hidden" name="id" value="<?php echo $product_id ?>">
-        </form>
-        <br>
+    <header>
+        <div class="arrow" onclick="history.go(-1);">
+            <div class="arrow-top"></div>
+            <div class="arrow-bottom"></div>
+        </div>
+        <a href="../../index.php" class="header-logo">
+            <div class="header2">
+                <h1>ar</h1>
+                <h2>Artesanía en Piel</h2>
+            </div>
+            </a>
+            
+    </header>
+    <div class="product-details">
+    <form class="imagenesForm" id="imageForm" method="GET">
+    <?php while ($row3 = $stmt3->fetch(PDO::FETCH_ASSOC)) { ?>
+        <button type="button" onclick="Eliminar_img(<?php echo $row3['image_id'] ?>)">
+            <img src="../Controladores/Productos/<?php echo $row3['image_path'] ?>" width="300vmax" alt="">
+            <div class="overlay">
+                <svg viewBox="0 0 16 16" class="bi bi-trash3-fill" fill="currentColor" height="30" width="30" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5"></path>
+                </svg>
+            </div>
+        </button>
+    <?php } ?>
+</form>
+        <div class="product-info">
+            <form action="../Controladores/Productos/editar.php" method="POST" enctype="multipart/form-data">
+                <div class="input-container">
+                    <input type="text" id="name" name="name" required="" value="<?php echo $row2['Nombre'] ?>">
+                    <label for="name" class="label">Nombre del Producto</label>
+                    <div class="underline"></div>
+                </div>
+                <div class="input-container">
+                    <input type="text" id="Desc" name="Desc" required="" value="<?php echo $row2['Descripcion'] ?>">
+                    <label for="Desc" class="label">Descripción del Producto</label>
+                    <div class="underline"></div>
+                </div>
+                <div class="input-container">
+                    <input type="text" id="detalle1" name="detalle1" required="" value="<?php echo $row2['detalle1'] ?>">
+                    <label for="detalle1" class="label">Detalle 1</label>
+                    <div class="underline"></div>
+                </div>
+                <div class="input-container">
+                    <input type="text" id="detalle2" name="detalle2" required="" value="<?php echo $row2['detalle2'] ?>">
+                    <label for="detalle2" class="label">Detalle 2</label>
+                    <div class="underline"></div>
+                </div>
+                <div class="input-container">
+                    <input type="text" id="color" name="color" required="" value="<?php echo $row2['color'] ?>">
+                    <label for="color" class="label">Color</label>
+                    <div class="underline"></div>
+                </div>
+                <div class="input-container selector">
+                    <select name="categoria" id="categoria">
+                        <?php while ($row = $result->fetch(PDO::FETCH_ASSOC)) { ?>
+                            <option value="<?php echo $row['category_id']; ?>" <?php if ($row['category_id'] == $row2['category_id']) echo 'selected'; ?>><?php echo $row['category']; ?></option>
+                        <?php } ?>
+                    </select>
+                </div>
+                <div class="input-container añadirImagenes">
+                    <input type="file" id="Imagen" name="Imagen[]" multiple class="custom-file-input">
+                    <label for="Imagen" class="custom-file-label">Añadir imágenes</label>
+                    <div class="underline"></div>
+                    <span id="file-count" class="file-count"></span>
+                    <input type="submit" value="Guardar" class="custom-file-label">
+                    <input type="hidden" name="id" value="<?php echo $product_id ?>">
+                </div>
 
-        <h2>¿Deseas eliminar el producto?</h2>
-        <form action="../Controladores/Productos/Eliminar.php" method="GET">
-            <button type="button" name="delete" class="delete" onclick="Eliminar(<?php echo $product_id ?>)">Eliminar</button>
-        </form>
-        <br>
+            </form>
 
-        <h1>Imágenes del producto</h1>
-        <form id="imageForm" method="GET">
-            <?php while ($row3 = $stmt3->fetch(PDO::FETCH_ASSOC)) { ?>
-                <button type="button" onclick="Eliminar_img(<?php echo $row3['image_id'] ?>)">
-                    <img src="../Controladores/Productos/<?php echo $row3['image_path'] ?>" width="300vmax" alt="">
-                </button>
-            <?php } ?>
-        </form>
-    </center>
+<form action="../Controladores/Productos/Eliminar.php" method="GET" class="delete-form">
+    <button type="button" name="delete" class="Btn" onclick="Eliminar(<?php echo $product_id ?>)">
+        <div class="sign">
+            <svg
+                viewBox="0 0 16 16"
+                class="bi bi-trash3-fill"
+                fill="currentColor"
+                height="18"
+                width="18"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path
+                    d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5"
+                ></path>
+            </svg>
+        </div>
+        <div class="text">Eliminar Producto</div>
+    </button>
+</form>
+
+        </div>
+
+
+    </div>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const urlParams = new URLSearchParams(window.location.search);
@@ -161,6 +217,13 @@ $stmt3->execute();
                 }
             });
         }
+        const fileInput = document.getElementById('Imagen');
+    const fileCount = document.getElementById('file-count');
+
+    fileInput.addEventListener('change', function() {
+        const count = fileInput.files.length;
+        fileCount.textContent = count === 0 ? '' : `${count} archivo(s) seleccionado(s)`;
+    });
     </script>
 </body>
 </html>

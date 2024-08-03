@@ -21,7 +21,7 @@ $isAdmin = isset($_SESSION['email']);
         <a href="../../index.php">
             <div class="header2">
                 <h1>ar</h1>
-                <h2>Artesaníaen Piel</h2>
+                <h2>Artesanía en Piel</h2>
             </div>
         </a>
         <li><a href="#"><i class="fas fa-shopping-bag"></i></a></li>
