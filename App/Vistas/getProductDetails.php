@@ -106,7 +106,7 @@ if (isset($_GET["product_id"])) {
                 <p><b>Color: </b><?php echo $product[0]["color"]; ?></p>
                 <p>Hecho a mano 100% piel</p>
                         
-                <a href="https://wa.me/6182821360?text=Hola,%20quiero%20más%20información%20sobre%20el%20producto." target="_blank">
+                <a href="https://wa.me/6182821360?text=Hola!, me interesa el producto%20<?php echo urlencode($nombre); ?>." target="_blank">
     <button class="button2">
         Personalizar y cotizar
         <svg viewBox="0 0 48 48" y="0px" x="0px" xmlns="http://www.w3.org/2000/svg">

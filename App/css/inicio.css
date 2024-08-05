@@ -29,7 +29,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     background-color: rgba(0, 0, 0, 0.2);
     z-index: 0;
 }
@@ -58,8 +58,7 @@ nav {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-evenly;
-    width: 50%;
+    width: auto;
 }
 
 ul {
@@ -71,12 +70,13 @@ ul {
     font-family: "Cormorant Garamond", serif;
     font-weight: 300;
     font-style: normal;
-    margin: 3px;
+    list-style-type: none;
 }
 
 ul a {
     text-decoration: none;
     color: white;
+    margin: 2rem;
 }
 
 .inicio {
@@ -222,13 +222,7 @@ ul a {
     font-size: 1.6vi;
 }
 
-.testimonios2 h4 {
-    font-family: "Cormorant Garamond", serif;
-    font-weight: 800;
-    font-style: normal;
-    font-size: 1.6vi;
-    margin-bottom: 10%;
-}
+
 
 .testimonios3 {
     margin: 1rem 0 4rem;
@@ -677,4 +671,456 @@ form {
         background-position: 180px;
     }
 }
+
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5em;
+}
+
+nav ul.show {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 40px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    padding: 10px;
+}
+
+nav ul.show li a {
+    color: white;
+}
+
+@media (max-width: 768px) {
+    
+    nav ul {
+        display: none;
+        gap: 30px;
+    }
+
+    ul a {
+        text-decoration: none;
+        color: white;
+        font-size: 1rem;
+        margin: 15px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .titulo {
+        font-size: 1.1rem;
+    }
+
+    .inicio {
+        justify-content: space-around;
+        display: flex;
+        z-index: 1;
+        height: 40%;
+    }
+    
+    .inicio h1 {
+        color: white;
+        text-align: center;
+        font-family: "Cormorant Garamond", serif;
+        font-weight: 500;
+        font-style: normal;
+        font-size: 1.8rem;
+        margin-bottom: -1rem;
+    }
+    
+    .inicio h3 {
+        color: white;
+        text-align: center;
+        font-family: "Cormorant Garamond", serif;
+        font-weight: 500;
+        font-style: normal;
+        font-size: 1.1rem;
+    }
+    
+    .inicio a {
+        text-decoration: none;
+        color: white;
+        font-size: 0.8rem;
+    }
+    
+    .boton {
+        width: 10rem;
+        height: 2rem;
+        margin-top: 10px;
+        padding: 10px;
+    }
+
+    .somos {
+        flex-direction: column;
+    }
+    
+    .somos1 {
+        width: 100%;
+        padding-top: 20px;
+        padding-left: 0rem;
+        text-align: center;
+    }
+    
+    .somos1 h1 {
+        font-weight: 100;
+        font-size: 1.5rem;
+    }
+    
+    .somos2 {
+        width: 100%;
+        align-content: center;
+        justify-content: center;
+        padding: 1rem;
+    }
+    
+    .somos2 p {
+        font-family: "Cormorant Garamond", serif;
+        font-weight: 300;
+        font-style: normal;
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    .imagen2 {
+        height: 20rem;
+    }
+
+    .testimonios {
+        flex-direction: column;
+    }
+    
+    .testimonios1 {
+        width: 100%;
+        padding-left: 1rem;
+    }
+    
+    .testimonios1 h1 {
+        font-weight: 100;
+        font-size: 1.5rem;
+    }
+    
+    .testimonios2 {
+        width: 100%;
+        padding: 0px 10px 0 10px;
+    }
+    
+    .testimonios2 h2 {
+        font-size: 1.1rem;
+    }
+    
+    .testimonios2 h3 {
+        font-size: .9rem;
+    }
+    
+    .testimonios3 {
+        margin: 10px;
+    }
+    
+    .usuaria img{
+        width: 12px;
+        height: 12px;
+        margin-left: 5px;
+    }
+
+    .imagen3 {
+        height: 20rem;
+    }
+
+    .consulta {
+        height: 25rem;
+        padding: 0rem;
+        width: 100%;
+        margin: 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .consulta2 {
+        gap: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .consulta h1 {
+        color: white;
+        text-align: center;
+        font-family: "Cormorant Garamond", serif;
+        font-weight: 500;
+        font-style: normal;
+        font-size: 1.5rem;
+        margin: 0px;
+    }
+    
+    .consulta h3 {
+        font-size: 1rem;
+    }
+    
+    .consulta a {
+        font-size: 0.8rem;
+    }
+
+    .footer {
+        background-color: rgb(224, 205, 176);
+        height: 20rem;
+        padding-top: 5rem;
+        width: 100%;
+        margin: 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .footer h1 {
+        color: rgb(26, 14, 8);
+        text-align: center;
+        font-family: "Cormorant Garamond", serif;
+        font-weight: 500;
+        font-style: normal;
+        font-size: 1.5rem;
+        margin: 0rem;
+    }
+    
+    .footer h3 {
+        color: rgb(26, 14, 8);
+        text-align: center;
+        font-family: "Cormorant Garamond", serif;
+        font-weight: 500;
+        font-style: normal;
+        font-size: 1rem;
+        margin: 0px
+    }
+    
+    .social-icons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        list-style: none;
+        padding: 0;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .social-icons li {
+        margin: 0 10px;
+    }
+    
+    .social-icons a {
+        text-decoration: none;
+        color: #000;
+        font-size: 1.5rem;
+        transition: color 0.3s ease;
+    
+    }
+    
+    .social-icons a:hover {
+        color: #7a7a7a;
+    }
+
+    .botonesA {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;    
+        height: 2rem;
+      }
+
+      .adminB {
+        background-color: white;
+        padding: 1rem 2rem 1rem 2rem;
+        height: 3rem;
+        border-radius: 40px;
+        margin: 1rem;
+        color: black;
+        border: none;
+        border-width: 2px black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-transform: uppercase;
+        font-family: "Montserrat", sans-serif;
+        font-optical-sizing: auto;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 1rem;
+    }
+
+    .adminB:hover {
+        background-color: rgb(199, 199, 199);
+    }
+
+    .redes {    
+        display: flex;
+        flex-direction: column;
+    }
+
+    .loginBtnC {
+        padding: 20px 50px;
+        text-transform: uppercase;
+        border-radius: 40px;
+        font-size: 30px;
+        font-weight: 500;
+        color: rgb(224, 205, 176);;
+        text-shadow: none;
+        background: transparent;
+        cursor: pointer;
+        box-shadow: transparent;
+        border: 0px solid #ffffff80;
+        transition: 0.5s ease;
+        user-select: none;
+      }
+
+      .modal-content {
+        width: 70%;
+        margin-top: 5vh;
+        min-width: 100px;
+        font-size: .6rem;
+    }
+    
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        transition: .2s;
+    }
+    
+    .close:hover,
+    .close:focus {
+        color: rgb(43, 43, 43);
+        text-decoration: none;
+        cursor: pointer;
+    }
+    
+    .contenido {
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    input {
+        width: 100%;
+        height: 3rem;
+        margin-bottom: 10px;
+        border-radius: 10px;
+        border-width: 0px;
+        background-color: rgba(0, 0, 0, 0.4);
+        color: white;
+        padding-left: 5px;
+    }
+    
+    ::placeholder {
+        color: white;
+        opacity: .7;
+    }
+    
+    form button {
+        margin-bottom: 10px;
+        border-width: 0px;
+    }
+    
+    .logo {
+        width: 3.5rem;
+        height: 3.5rem;
+        background-color: rgba(0, 0, 0, .4);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 1rem;
+        padding: 0px;
+    }
+    
+    .logo h1 {
+        color: white;
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: 900;
+        font-size: 2.5rem;
+        margin: 0px;
+        padding: 0px;
+        margin-top: -9px;
+    }
+    
+    form {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        justify-content: center;
+        align-items: center;
+        height: auto;
+        margin: 0 auto;
+    }
+    
+    .contenido h2 {
+        margin-top: .5rem;
+        font-family: "Montserrat", sans-serif;
+        font-optical-sizing: auto;
+        font-style: normal;
+        font-weight: 300;
+        color: white;
+    }
+    
+    .contenido p {
+        display: flex;
+        align-self: flex-start;
+        color: white;
+    }
+    
+    .error-message {
+        color: red;
+        text-align: center;
+        font-family: "Poppins", sans-serif;
+        font-size: 16px;
+    }
+
+    .botonI {
+        width: 55%;
+        height: 1.5rem;
+        background-color: rgba(0, 0, 0, 0.4);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        margin: 30px;
+    }
+    
+    .btn-shine {
+        padding: 12px 48px;
+        color: #fff;
+        background: linear-gradient(to right, #9f9f9f 0, #fff 10%, #868686 20%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: shine 3s infinite linear;
+        animation-fill-mode: forwards;
+        -webkit-text-size-adjust: none;
+        font-family: "Montserrat", sans-serif;
+        font-optical-sizing: auto;
+        font-style: normal;
+        font-weight: 500;
+        font-size: .7rem;
+        text-decoration: none;
+        white-space: nowrap;
+        cursor: pointer;
+        margin: 0;
+    }
+}
+
 

@@ -595,3 +595,149 @@ nav li a:hover {
     font-size: 1.2rem;
     text-align: center;
 }
+
+@media (max-width: 768px) {
+
+    body {
+        flex-direction: column;
+    }
+
+    header {
+        display: flex;
+        align-items: center;
+        padding: 0px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0);
+        width: 100%;
+        top: 0;
+    }
+
+    .header2 {
+        width: 10rem;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        justify-content: center;
+        align-items: center;
+        border-radius: 20px;
+        margin: 0;
+    }
+    
+    .header2 h1 {
+        font-size: 2rem;
+        margin: 0;
+    }
+    
+    .header2 h2 {
+        color: black;   
+        font-size: .8rem;
+        margin: 0;
+        font-weight: 100;
+        margin-bottom: 10px;
+    }
+
+    .arrow-top, .arrow-bottom {
+        width: 15%;
+      }
+
+      nav {
+        width: 100%;
+        height: min-content;
+        margin: 0;
+        padding: 0;
+        padding-top: 4rem;
+        background-color: white;
+    }
+
+    nav ul {
+        display: flex;
+    }
+
+    nav li {
+        margin: 10px 7px 10px 7px;
+        list-style-type: none;
+    }
+    
+    nav li a {
+        text-transform: lowercase;
+        display: block;
+        padding: 0;
+        transition: background-color 0.3s, color 0.3s;
+        font-size: .55rem;
+    }
+
+    .contenido {
+        max-height: 100vh;
+        width: 100%;
+        padding: 0rem;
+    }
+
+    .categoria-header {
+        margin-top: 1rem;
+        display: flex;
+        padding: 0;
+    }
+    
+    .categoria-header img {
+        width: 15rem;
+    }
+    
+    .categoria-header h1 {
+        font-size: 1.6rem;
+    }
+    
+    .categoria-header h2 {
+        font-size: 1rem;
+        margin: 10px 15px 10px 15px;
+    }
+
+    .productos {
+        width: 100%;
+        padding-top: 2rem;
+    }
+
+    .producto {
+        width: 42%;
+        height: 15rem;
+        margin: 0px 15px 55px 15px;
+        display: inline-block;
+        overflow: hidden;
+        transition: transform 0.3s ease-in-out;
+        cursor: pointer;
+        transition: transform 0.3s, opacity .8s;
+        opacity: 0;
+        transform: translateY(20px);
+        position: relative;
+    }
+
+    .producto .info .nombre {
+        font-weight: bold;
+        margin: 0px 0;
+    }
+    .details-button {
+    font-size: 13.5px;
+    color: #ffffff;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    cursor: pointer;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: none;
+    background: none;
+    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition-duration: 400ms;
+    transition-property: color;
+    opacity: 0; 
+    z-index: 99;
+}
+.switch {
+    gap: 0px;
+}
+.admin-mode {
+    font-size: 0rem;
+    margin: 0;
+}
+}

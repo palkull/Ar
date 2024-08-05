@@ -4,7 +4,6 @@ include ("./App/Controladores/Config/config.php");
 session_start();
 $isAdmin = isset($_SESSION['email']);
 
-
 $consulta = "SELECT * FROM comments";
 $stmt_id = $conexion->prepare($consulta);
 $stmt_id->execute();
@@ -13,7 +12,6 @@ $resultado = $stmt_id->fetchAll(PDO::FETCH_ASSOC);
 
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,58 +22,60 @@ $resultado = $stmt_id->fetchAll(PDO::FETCH_ASSOC);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <script>
+        function toggleNav() {
+            const navMenu = document.getElementById("navMenu");
+            navMenu.classList.toggle("show");
+        }
+
         function toggleButtons() {
             const originalButton = document.getElementById("originalButton");
             const originalButton2 = document.getElementById("originalButton2");
             const buttons = document.querySelectorAll(".button1, .button2");
 
-            // Toggle display for originalButton and originalButton2
             originalButton.style.display = "none";
             originalButton2.style.display = "block";
 
-            // Show all buttons with classes button1 and button2
             buttons.forEach(button => {
                 button.style.display = "block";
             });
         }
+
         function regreso() {
             const originalButton = document.getElementById("originalButton");
             const originalButton2 = document.getElementById("originalButton2");
             const buttons = document.querySelectorAll(".button1, .button2");
 
-            // Toggle display for originalButton and originalButton2
             originalButton.style.display = "block";
             originalButton2.style.display = "none";
 
-            // Show all buttons with classes button1 and button2
             buttons.forEach(button => {
                 button.style.display = "none";
             });
         }
     </script>
-    <!-- <script src="./App/js/Cerrar.js"></script> -->
 </head>
-
 <body>
     <div class="fondo">
         <header>
             <h1 class="titulo">AR | ARTESANÍA EN PIEL</h1>
             <nav>
-                <ul><a href="./App/Vistas/acercaDe.php">Acerca de</a></ul>
-                <ul><a href="./App/Vistas/catalogo.php">Catálogo</a></ul>
-                <ul><a href="./App/Vistas/galeria.php">Galeria</a></ul>
-                <ul><a href="./App/Vistas/consulta.php">Consulta</a></ul>
-
-
+        <button class="menu-toggle" aria-label="Open menu">&#9776;</button>
+        <ul id="navMenu">
+                    <li><a href="./App/Vistas/catalogo.php">Catálogo</a></li>
+                    <li><a href="./App/Vistas/galeria.php">Galería</a></li>
+                    <li><a href="./App/Vistas/consulta.php">Consulta</a></li>
+                </ul>
             </nav>
+    
         </header>
 
         <div class="inicio">
+            <div>
             <h1>Diseñados para toda la vida</h1>
             <h3>Artesanía elaborada a mano, 100% piel.</h3>
-
+            </div>
             <div class="boton">
-                <a href="">Reservar una consulta</a>
+            <a href="https://wa.me/6182821360?text=Hola,%20me%20gustaría%20adquirir%20un%20producto,%20podrías%20darme%20más%20información?">Reservar una consulta</a>
             </div>
         </div>
     </div>
@@ -87,12 +87,12 @@ $resultado = $stmt_id->fetchAll(PDO::FETCH_ASSOC);
 
         <div class="somos2">
             <p>
-            AR Artesanía es una micro empresa en línea fundada por la Arquitecta Cecilia Hidalgo Rosales en el año 2008.
-            La empresa comenzó como hobbie elaborando bolsas de piel en el estado de Durango y las enviaba a la ciudad
-            de México para su venta. <br><br>Con el paso de los años sus productos comenzaron a tener más demanda por medio de
-            recomendaciones y se comenzaron a hacer envíos a diferentes partes de la república, hasta que en febrero de
-            2018, lo que llego a ser su pasatiempo se convirtió en una gran oportunidad de negocio y se dedicó al 100% a
-            la elaboración de artículos de piel.
+                AR Artesanía es una micro empresa en línea fundada por la Arquitecta Cecilia Hidalgo Rosales en el año 2008.
+                La empresa comenzó como hobbie elaborando bolsas de piel en el estado de Durango y las enviaba a la ciudad
+                de México para su venta. <br><br>Con el paso de los años sus productos comenzaron a tener más demanda por medio de
+                recomendaciones y se comenzaron a hacer envíos a diferentes partes de la república, hasta que en febrero de
+                2018, lo que llego a ser su pasatiempo se convirtió en una gran oportunidad de negocio y se dedicó al 100% a
+                la elaboración de artículos de piel.
             </p>
         </div>
     </div>
@@ -105,50 +105,41 @@ $resultado = $stmt_id->fetchAll(PDO::FETCH_ASSOC);
         </div>
 
         <div class="testimonios2">
-            <?php
-            if ($isAdmin): ?>
+            <?php if ($isAdmin): ?>
                 <div class="admin">
                     <button id="originalButton" onclick="toggleButtons()">ON</button>
                     <button id="originalButton2" style="display: none;" onclick="regreso()">OFF</button>
                 </div>
-
-                <?php
-            endif;
-            foreach ($resultado as $fila) {
-                ?>
+            <?php endif; ?>
+            
+            <?php foreach ($resultado as $fila): ?>
                 <div class="testimonios3">
-                    <h2>"<?php echo $fila['comentarios'] ?>" </h2>
+                    <h2>"<?php echo $fila['comentarios']; ?>"</h2>
                     <div class="usuaria">
-                    <h3>— @<?php echo $fila['reduser'] ?> </h3>
-                    <img <?php if ($fila['red_social'] == 1) { ?> src="./App/img/facebook.png" <?php } else { ?>
-                            src="./App/img/Instagram.png" <?php } ?> alt="Tacos de asada"> 
-                            </div>
+                        <h3>— @<?php echo $fila['reduser']; ?></h3>
+                        <img <?php if ($fila['red_social'] == 1) { ?> src="./App/img/facebook.png" <?php } else { ?> src="./App/img/Instagram.png" <?php } ?> alt="Red social">
+                    </div>
                 </div>
                 <div class="Botones_admin">
-                    <?php
-                    if ($isAdmin): ?>
+                    <?php if ($isAdmin): ?>
                         <form action="./App/Controladores/Comentarios/Resenas.php" method="POST">
-                            <button class="button1" type="submit" value="<?php echo $fila['comment_id'] ?>"
-                                style="display: none;" name="comentario">Eliminar</button>
+                            <button class="button1" type="submit" value="<?php echo $fila['comment_id']; ?>" style="display: none;" name="comentario">Eliminar</button>
                         </form>
-                    <?php else: ?>
-                        <!-- <p>No hacer nada acá</p> -->
                     <?php endif; ?>
                 </div>
-                <?php
-            }
-            ?>
+            <?php endforeach; ?>
         </div>
     </div>
 
     <img class="imagen3" src="./App/img/img3.png" alt="">
 
     <div class="consulta">
+        <div class="consulta2">
         <h1>Reservar una consulta</h1>
         <h3>Prepararemos una propuesta y le presentaremos todos los pasos del proceso.</h3>
-
+        </div>
         <div class="boton">
-            <a href="">Reservar una consulta</a>
+        <a href="https://wa.me/6182821360?text=Hola,%20me%20gustaría%20adquirir%20un%20producto,%20podrías%20darme%20más%20información?">Reservar una consulta</a>
         </div>
     </div>
 
@@ -159,20 +150,17 @@ $resultado = $stmt_id->fetchAll(PDO::FETCH_ASSOC);
         
         <div class="redes">
             <ul class="social-icons">
-                <li><a href="https://www.facebook.com/arartesaniaenpielDgo" target="_blank"><i
-                            class="fab fa-facebook"></i></a></li>
-                <li><a href="https://www.instagram.com/ar_artesaniaenpiel/" target="_blank"><i
-                            class="fab fa-instagram"></i></a></li>
-                            </ul>
-                <div class="botonesA">
+                <li><a href="https://www.facebook.com/arartesaniaenpielDgo" target="_blank"><i class="fab fa-facebook"></i></a></li>
+                <li><a href="https://www.instagram.com/ar_artesaniaenpiel/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+            </ul>
+            <div class="botonesA">
                 <?php if (!$isAdmin): ?>
                     <ul><a href="#" id="loginBtn" class="loginBtnC">Iniciar Sesión</a></ul>
-                    <?php else: ?>
-                        <ul><a class="adminB" href="./App/Vistas/Dash.php">Dashboard</a></ul>
-                        <button class="adminB" type="button" onclick="Logout()">Cerrar Sesion</button>
-                <?php endif ?>
-                </div>
-            
+                <?php else: ?>
+                    <ul><a class="adminB" href="./App/Vistas/Dash.php">Dashboard</a></ul>
+                    <button class="adminB" type="button" onclick="Logout()">Cerrar Sesión</button>
+                <?php endif; ?>
+            </div>
         </div>
     </div>
 
@@ -181,11 +169,9 @@ $resultado = $stmt_id->fetchAll(PDO::FETCH_ASSOC);
         <div class="modal-content">
             <span class="close">&times;</span>
             <div id="modal-body"></div>
-            <?php
-            if (isset($_GET['error'])) {
-                echo "<p class='error-message shake-animation'>Credenciales incorrectas, por favor intente de nuevo.</p>";
-            }
-            ?>
+            <?php if (isset($_GET['error'])): ?>
+                <p class="error-message shake-animation">Credenciales incorrectas, por favor intente de nuevo.</p>
+            <?php endif; ?>
         </div>
     </div>
 
@@ -193,7 +179,7 @@ $resultado = $stmt_id->fetchAll(PDO::FETCH_ASSOC);
     <script src="./App/js/modal.js"></script>
     <script>
         function Logout() {
-            swal("¿Estas seguro?", {
+            swal("¿Estás seguro?", {
                 icon: "warning",
                 buttons: {
                     cancel: "Cancelar",
@@ -203,34 +189,45 @@ $resultado = $stmt_id->fetchAll(PDO::FETCH_ASSOC);
                         dangerMode: true,
                     }
                 },
-                
-
             })
-                .then((value) => {
-                    switch (value) {
-                        case "catch":
-                            fetch(`./App/Controladores/Login/logout.php`)
-                                .then(response => {
-                                    if (response.ok) {
-                                        swal("Sesion cerrada",{icon: "success"}).then(() => {
-                                            location.reload(); // Recarga la página después de mostrar el mensaje de éxito
-                                        });
+            .then((value) => {
+                switch (value) {
+                    case "catch":
+                        fetch(`./App/Controladores/Login/logout.php`)
+                            .then(response => {
+                                if (response.ok) {
+                                    swal("Sesión cerrada",{icon: "success"}).then(() => {
+                                        location.reload();
+                                    });
+                                } else {
+                                    swal("Error!", "No se pudo cerrar sesión", "error");
+                                }
+                            })
+                            .catch(error => {
+                                swal("Error!", "Hubo un problema", "error");
+                            });
+                        break;
 
-                                    } else {
-                                        swal("Error!", "No se puedo cerrar sesion", "error");
-                                    }
-                                })
-                                .catch(error => {
-                                    swal("Error!", "Hubo un problema", "error");
-                                });
-                            break;
-
-                        default:
-                            swal("Operacion cancelada!",{icon: "error"} );
-                    }
-                });
+                    default:
+                        swal("Operación cancelada!",{icon: "error"} );
+                }
+            });
         }
+
+        document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('nav ul');
+
+    menuToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('show');
+    });
+
+    document.addEventListener('click', (event) => {
+        if (!navMenu.contains(event.target) && !menuToggle.contains(event.target)) {
+            navMenu.classList.remove('show');
+        }
+    });
+});
     </script>
 </body>
-
 </html>

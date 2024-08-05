@@ -206,3 +206,9 @@ header:hover .header2 h2 {
     background-size: cover;
     background-position: center;
 }
+
+@media (max-width: 768px) {
+    .editor a{
+        font-size: 1rem;
+    }
+}

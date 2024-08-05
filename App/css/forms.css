@@ -530,3 +530,27 @@ ul {
   display: flex;
   align-items: center;
 }
+
+@media (max-width: 768px) {
+
+header a {
+    font-size: .65rem;
+}
+
+.header2 {
+    width: 5rem;
+}
+
+.header2 h1 {
+    font-size: 1.5rem;
+}
+
+.header2 h2 {
+    font-size: .5rem;
+}
+
+form {
+  width: 23rem;
+  padding: 0 0px 0px 0px;
+}
+}

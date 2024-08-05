@@ -485,3 +485,102 @@ header.sticky .header2 h2 {
 .Btn:active {
     transform: translate(2px, 2px);
 }
+
+@media (max-width: 768px) {
+    header {
+        display: flex;
+        align-items: center;
+        padding: 0px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0);
+        width: 100%;
+        top: 0;
+      }
+      
+      .header2 {
+        width: 10rem;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        justify-content: center;
+        align-items: center;
+        border-radius: 20px;
+        margin: 0;
+      }
+      
+      .header2 h1 {
+        font-size: 2rem;
+        margin: 0;
+      }
+      
+      .header2 h2 {
+        color: black;   
+        font-size: .8rem;
+        margin: 0;
+        font-weight: 100;
+        margin-bottom: 10px;
+      }
+      
+      .arrow-top, .arrow-bottom {
+        width: 15%;
+      }
+    .product-details {
+        padding-top: 6rem;
+        flex-direction: column;
+      }
+
+      .imagenesForm {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        flex-wrap:wrap;
+        gap: 0px; /* Añade espacio entre botones */
+    }
+
+    .imagenesForm img {
+        display: flex;
+        width: 100%;
+        height: 100%;
+    }
+
+    .imagenesForm .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 0, 0, 0.5); /* Rojo transparente */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s;
+        border-radius: 10px;
+    }
+    .imagenesForm button {
+        width: 35%;
+        margin: 10px;
+        object-fit: contain;
+
+    }
+    .product-info {
+        width: 100%;
+    }
+    .custom-file-label {
+        text-align: center;
+        display: flex;
+        cursor: pointer;
+        height: 2rem;
+        align-items: center;
+        justify-content: center;
+        width: 70%;
+        color: #fff;
+        background-color: #333;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+    }
+}

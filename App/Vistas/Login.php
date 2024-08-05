@@ -29,7 +29,7 @@ $isAdmin = isset($_SESSION['email']);
         <button type="submit" class="btn-shine">Iniciar Sesión</button>
         </div>
     </form>
-    <a href="./App/Vistas/Register.php" >Registrar</a>
+    <!-- <a href="./App/Vistas/Register.php" >Registrar</a> -->
     </div>
 </body>
 

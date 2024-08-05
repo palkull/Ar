@@ -105,11 +105,11 @@ header a {
 
 
 .header1 {
-    width: 98%;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px;
+    padding: 10px 0 10px 0;
 }
 
 .header2 {
@@ -414,25 +414,103 @@ footer div {
 
 @media screen and (max-width: 700px){
 
+
     .elementos {
         transition: letter-spacing 0.3s;
-        font-size: .8rem;
+        font-size: .6rem;
     }
     
     .elementos:hover {
         letter-spacing: 0px;
     }
 
+
     .content_slider p {
         font-size: 1.45vi;
         font-family: "Montserrat", sans-serif;
-        color: #FFF;
         margin: 9rem 0rem 6rem 0rem;
     }
 
+    #container-slider div {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
+
     #container-slider div p {
-        width: 50%;
-        font-size: 2.5vi;
+        width: 80%;
+        font-size: 1rem;
+    }
+    #container-slider div h2 {
+        font-size: 1rem;
+        margin-bottom: -3rem;
+    }
+
+    .arrowPrev, .arrowNext{
+        display: none;
+    }
+
+    .header1 {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0;
+    }
+
+    .header2 {
+        width: 10rem;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        justify-content: center;
+        align-items: center;
+        border-radius: 20px;
+        margin: 0;
+    }
+    
+    .header2 h1 {
+        font-size: 2rem;
+        margin: 0;
+    }
+    
+    .header2 h2 {
+        color: white;
+        font-size: .8rem;
+        margin: 0;
+        font-weight: 100;
+        margin-bottom: 10px;
+    }
+
+    .titulo1 {
+        margin: 0rem;
+        font-size: .9rem;
+    }
+
+    .titulo {
+        margin: 3rem 10px 3rem 10px;
+    }
+
+    .categorias p {
+        bottom: 0;
+        font-size: 1rem;
+        font-weight: 100;
+        margin: 0rem;
+    }
+    
+    .categorias h3 {
+        font-size: .7rem;
+        font-weight: 200;
+        margin-left: 0rem;
+        margin-bottom: 1rem;
+        text-align: left;
+    }
+
+    .categoria7 {
+        width: 88%;
+        height: 20vi;
+        background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)), url(../img/otros.png);
     }
 
 }
