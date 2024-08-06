@@ -139,7 +139,7 @@ $resultado = $stmt_id->fetchAll(PDO::FETCH_ASSOC);
         <h3>Prepararemos una propuesta y le presentaremos todos los pasos del proceso.</h3>
         </div>
         <div class="boton">
-        <a href="https://wa.me/6182821360?text=Hola,%20me%20gustaría%20adquirir%20un%20producto,%20podrías%20darme%20más%20información?">Reservar una consulta</a>
+        <a href="https://wa.me/+5216181664872?text=Hola,%20me%20gustaría%20adquirir%20un%20producto,%20podrías%20darme%20más%20información?">Reservar una consulta</a>
         </div>
     </div>
 
