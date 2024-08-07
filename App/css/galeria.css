@@ -1,0 +1,363 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    width: 100%;
+    height: 100%;
+    padding-top: 2rem;
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+
+.arrow {
+    cursor: pointer;
+    left: 20px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.1s;
+    width: 5rem;
+    height: 5rem;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+  
+  .arrow-top, .arrow-bottom {
+    width: 25%;
+    height: 2%;
+    background-color: #919191;
+    position: absolute;
+    top: 50%;
+  }
+  
+  .arrow-top:after, .arrow-bottom:after {
+    background-color: black;
+    content: "";
+    height: 100%;
+    position: absolute;
+    top: 0;
+    transition: all 0.15s;
+  }
+  
+  .arrow-top {
+    transform: rotate(-45deg);
+    transform-origin: bottom left;
+  }
+  
+  .arrow-top:after {
+    left: 0;
+    right: 100%;
+    transition-delay: 0s;
+  }
+  
+  .arrow-bottom {
+    transform: rotate(45deg);
+    transform-origin: top left;
+  }
+  
+  .arrow-bottom:after {
+    left: 100%;
+    right: 0;
+    transition-delay: 0.15s;
+  }
+  
+  .arrow:hover .arrow-top:after {
+    right: 0;
+    transition-delay: 0.15s;
+  }
+  
+  .arrow:hover .arrow-bottom:after {
+    left: 0;
+    transition-delay: 0s;
+  }
+  
+  .arrow:active {
+    transform: translateY(-50%) scale(0.9);
+  }
+  
+
+
+.header-logo {
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+}
+
+.header2 h1, .header2 h2 {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    position: absolute;
+    right: 0px;
+    display: flex;
+    align-items: center;
+}
+
+.container .switch {
+    display: flex;
+    align-items: center;
+}
+
+header.sticky {
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+}
+
+header.sticky a {
+    color: black;
+}
+
+header.sticky .header2 h1 {
+    color: black;
+}
+
+header.sticky .header2 h2 {
+    color: black;
+    font-weight: 200;
+}
+
+header ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    padding: 1em 0;
+    margin: 0;
+}
+
+header li {
+    padding: 0.5em 1em;
+    list-style-type: none;
+}
+
+header a {
+    text-decoration: none;
+    color: black;
+    transition: color 0.3s;
+}
+
+.header2 {
+    flex: 1;
+    text-align: center;
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.header2 h1 {
+    color: rgb(0, 0, 0);
+    font-size: 2.5rem;
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0;
+}
+
+.header2 h2 {
+    color: rgb(0, 0, 0);
+    font-size: 1rem;
+    margin: 0;
+    font-weight: 100;
+    margin-bottom: 10px;
+}
+
+header.sticky .header2 h1 {
+    color: black;
+}
+
+header.sticky .header2 h2 {
+    color: black;
+    font-weight: 200;
+}
+
+.titulo {
+    margin-top: 6rem;
+    font-size: 2rem;
+    font-weight: 300;
+    width: 100%;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+    padding-top: 2rem;
+}
+
+.modal img {
+    width: 30rem;
+    object-fit: contain;
+    border-radius: 20px;
+}
+
+.modal img.visible {
+    opacity: 1; 
+    transform: translateY(0);
+}
+
+.modal-content-container {
+    position: relative;
+    max-width: 90%;
+    max-height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    width: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.modal-content {
+    animation-name: zoom;
+    animation-duration: 0.2s;
+}
+
+@keyframes zoom {
+    from {
+        transform: scale(0)
+    }
+    to {
+        transform: scale(1)
+    }
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #f1f1f1;
+    font-size: 50px;
+    font-weight: 300;
+    transition: 0.3s;
+    z-index: 99;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 3rem;
+}
+
+.gallery img {
+    cursor: pointer;
+    object-fit: contain;
+    border-radius: 10px;
+    transition: opacity 0.8s ease-in-out, transform 0.3s ease-in-out;
+    opacity: 0;
+    transform: translateY(20px); /* Inicialmente desplazado hacia abajo */
+}
+
+.gallery img.visible {
+    opacity: 1; 
+    transform: translateY(0); /* Vuelve a su posición original */
+}
+
+
+.gallery img:hover {
+    transform: scale(1.05);
+}
+.copy {
+    background-color: black;
+    width: 100%;
+    color: white;
+    justify-content: center;
+    display: flex;
+    margin: 0;
+}
+
+.copy p {
+    font-size: 1vi;
+}
+
+@media (max-width: 768px) {
+    header {
+        display: flex;
+        align-items: center;
+        padding: 0px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0);
+        width: 100%;
+        top: 0;
+      }
+      
+      .header2 {
+        width: 10rem;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        justify-content: center;
+        align-items: center;
+        border-radius: 20px;
+        margin: 0;
+      }
+      
+      .header2 h1 {
+        font-size: 2rem;
+        margin: 0;
+      }
+      
+      .header2 h2 {
+        color: black;   
+        font-size: .8rem;
+        margin: 0;
+        font-weight: 100;
+        margin-bottom: 10px;
+      }
+      
+      .arrow-top, .arrow-bottom {
+        width: 15%;
+      }
+      .switch {
+        gap: 0px;
+    }
+
+    .gallery img {
+        max-width: 40%;
+    }
+
+    .titulo {
+        margin-top: 4rem;
+    }
+}

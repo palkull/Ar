@@ -16,15 +16,16 @@ $isAdmin = isset($_SESSION['email']);
 <body>
 
 <header>
-    <div class="header1">
-        <li><a href="./Busqueda.php"><i class="fas fa-search"></i></a></li> 
+<div class="header1">
         <a href="../../index.php">
             <div class="header2">
                 <h1>ar</h1>
                 <h2>Artesanía en Piel</h2>
             </div>
         </a>
-        <li><a href="#"><i class="fas fa-shopping-bag"></i></a></li>
+        <div class="search-container">
+            <a href="./Busqueda.php"><i class="fas fa-search"></i></a>
+        </div>
     </div>
     <ul>
         <li><a class="elementos" href="#Bolsas">Bolsas</a></li>
@@ -52,7 +53,7 @@ $isAdmin = isset($_SESSION['email']);
           <div>
             <h2>Personal</h2>
             <p>Descubre lo mejor para tu productividad diseñado a medida, con soluciones que se adaptan a tus necesidades.</p>
-        <a href="#" class="btnSlider">Ver más</a>
+        <a href="./Catalogos.php?categoria=personal" class="btnSlider">Ver más</a>
       </div>
         </div>
       </li>
@@ -61,7 +62,7 @@ $isAdmin = isset($_SESSION['email']);
           <div>
             <h2>Herramientas</h2>
             <p>Optimiza tu trabajo con las herramientas adecuadas, diseñadas para facilitar cada tarea y mejorar la eficiencia en tu día a día.</p>
-        <a href="#" class="btnSlider">Ver más</a>
+        <a href="./Catalogos.php?categoria=herramientas" class="btnSlider">Ver más</a>
       </div>
         </div>
       </li>
@@ -70,7 +71,7 @@ $isAdmin = isset($_SESSION['email']);
           <div>
             <h2>Contáctanos</h2>
             <p>Estamos aquí para entender y adaptarnos a tus necesidades y gustos. Ponte en contacto con nosotros para descubrir cómo podemos ayudarte.</p>
-        <a href="#" class="btnSlider">WhatsApp</a>
+        <a class="btnSlider" href="https://wa.me/+5216181664872?text=Hola,%20me%20gustaría%20adquirir%20un%20producto,%20podrías%20darme%20más%20información?">WhatsApp</a>
       </div>
         </div>
       </li>
@@ -111,15 +112,6 @@ $isAdmin = isset($_SESSION['email']);
         <h3>Cotiza según tus gustos y necesidades</h3>
     </button>
 </form>
-
-
-<footer>
-    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti fuga deserunt ut eum labore laudantium quaerat voluptatibus cum non aperiam sunt recusandae excepturi, iusto corporis veritatis cumque molestiae perspiciatis expedita?</div>
-
-    <div>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit facere adipisci quidem minus officia, consectetur corrupti sed aperiam perspiciatis repellat fugiat placeat perferendis autem tempora error doloremque aut maxime doloribus!</div>
-
-    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi alias tenetur magni iure eum culpa aspernatur accusantium ad, deserunt a consequuntur tempore qui voluptates magnam temporibus asperiores pariatur! Saepe, maxime.</div>
-</footer>
 
 <div class="copy">
     <p>&copy; 2024 AR | Artesanía en Piel. Todos los derechos reservados.</p>

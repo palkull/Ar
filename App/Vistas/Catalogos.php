@@ -110,7 +110,7 @@ try {
         echo '<h2>' . $info['texto'] . '</h2>';
         echo '</div>';
     } else {
-        echo '<p>Categoría no especificada o no encontrada.</p>';
+
     }
     ?>
         <div class="productos">
