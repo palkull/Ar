@@ -24,24 +24,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bindParam(":red_social", $red); // Asegúrate de obtener el valor correcto para "red_social"
 
     if ($stmt->execute()) {
-        echo "Nuevo registro creado exitosamente";
+        header("Location: ../../Vistas/Comentarios.php");
+        exit(); // Asegurarse de que el script se detiene después de redirigir
     } else {
         echo "Error: " . $stmt->errorInfo()[2];
     }
 }
-?>
 
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dosef</title>
-</head>
-
-<body>
-    <p>Alalalal</p>
-</body>
-
-</html>
