@@ -137,7 +137,7 @@ $result = $conexion->query($sql);
 
             if (status === 'success') {
                 swal("¡Éxito!", "El producto se subió correctamente.", "success").then(() => {
-                    location.reload();
+                    location.href = "./productos.php";
                 });
             } else if (status === 'error') {
                 swal("Error", "Hubo un problema al subir el producto.", "error");
