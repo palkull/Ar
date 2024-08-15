@@ -63,7 +63,7 @@ $resultado = $stmt_id->fetchAll(PDO::FETCH_ASSOC);
         <ul id="navMenu">
                     <li><a href="./App/Vistas/catalogo.php">Catálogo</a></li>
                     <li><a href="./App/Vistas/galeria.php">Galería</a></li>
-                    <li><a href="./App/Vistas/consulta.php">Consulta</a></li>
+                    <li> <a href="https://wa.me/+5216181664872?text=Hola,%20me%20gustaría%20adquirir%20un%20producto,%20podrías%20darme%20más%20información?">Consulta</a></li>
                 </ul>
             </nav>
     
